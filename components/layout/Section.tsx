@@ -4,7 +4,6 @@ import { Container } from './Container';
 
 interface SectionProps {
   children: ReactNode;
-  /** Spacing variant: 'large' (space-7/8) or 'normal' (space-6) */
   spacing?: 'normal' | 'large';
   className?: string;
   containerVariant?: 'wide' | 'reading';
@@ -17,7 +16,7 @@ export function Section({
   containerVariant = 'wide',
 }: SectionProps) {
   const paddingY =
-    spacing === 'large' ? 'py-16 md:py-20' : 'py-12 md:py-16';
+    spacing === 'large' ? 'py-20 md:py-28' : 'py-14 md:py-20';
 
   return (
     <section className={`${paddingY} ${className}`}>

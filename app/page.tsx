@@ -30,16 +30,16 @@ export default function Home() {
           <p className="mt-4 text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
             {profile.introShort}
           </p>
-          <div className="mt-6 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="/projects"
-              className="inline-flex px-5 py-2.5 text-sm font-medium rounded-[var(--radius-sm)] bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] transition-colors"
+              className="inline-flex px-6 py-3 text-sm font-medium rounded-[var(--radius-full)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all duration-200 shadow-[var(--shadow-elevation-1)] hover:shadow-[var(--shadow-elevation-2)]"
             >
               Lihat Proyek →
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex px-5 py-2.5 text-sm font-medium rounded-[var(--radius-sm)] border border-[var(--color-border)] hover:border-[var(--color-text-primary)] transition-colors"
+              className="inline-flex px-6 py-3 text-sm font-medium rounded-[var(--radius-full)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all duration-200"
             >
               Hubungi
             </a>
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="mt-4">
           <a
             href="/about"
-            className="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] font-medium transition-colors"
+            className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium transition-colors"
           >
             Baca selengkapnya →
           </a>
@@ -101,7 +101,7 @@ export default function Home() {
             Kirim email ke{' '}
             <a
               href={`mailto:${profile.email}`}
-              className="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors font-medium"
+              className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors font-medium"
             >
               {profile.email}
             </a>
@@ -113,7 +113,7 @@ export default function Home() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+                className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
               >
                 {label}
               </a>
@@ -123,7 +123,7 @@ export default function Home() {
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+                className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
               >
                 Resume
               </a>

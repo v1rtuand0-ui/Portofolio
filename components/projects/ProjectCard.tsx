@@ -10,17 +10,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const {
-    slug,
-    title,
-    shortDescription,
-    image,
-    tags,
-    status,
-    startDate,
-    endDate,
-    featured,
-  } = project;
+  const { slug, title, shortDescription, tags, status, startDate, endDate, featured, image } = project;
 
   const statusMap: Record<Project['status'], string> = {
     'in-progress': '🚧 In Progress',
@@ -32,55 +22,46 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${slug}`}
-      className="group block border border-[var(--color-border)] rounded-[var(--radius-md)] p-5 hover:border-[var(--color-border-strong)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2"
+      className="group block bg-[var(--color-background)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-6 hover:shadow-[var(--shadow-elevation-2)] hover:border-[var(--color-primary)] transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2"
     >
-      {/* Featured badge */}
       {featured && (
-        <div className="mb-3">
-          <span className="inline-block text-xs font-medium text-[var(--color-accent)] bg-[var(--color-accent)]/10 px-2.5 py-0.5 rounded-[var(--radius-sm)]">
-            ⭐ Featured
+        <div className="mb-4">
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-light)] px-3 py-1 rounded-[var(--radius-full)]">
+            <span className="text-sm">⭐</span> Featured
           </span>
         </div>
       )}
 
-      {/* Image placeholder / thumbnail */}
-      {image ? (
-        <div className="aspect-video bg-[var(--color-surface)] rounded-[var(--radius-sm)] mb-4 overflow-hidden border border-[var(--color-border)]">
-          {/* Next.js Image nanti di sini, untuk sekarang placeholder dulu */}
-          <div className="w-full h-full flex items-center justify-center text-[var(--color-text-muted)] text-sm bg-[var(--color-surface)]">
-            🖼️ {title}
-          </div>
-        </div>
-      ) : (
-        <div className="aspect-video bg-[var(--color-surface)] rounded-[var(--radius-sm)] mb-4 flex items-center justify-center text-[var(--color-text-muted)] text-sm border border-[var(--color-border)]">
-          📷 No image
-        </div>
-      )}
+      {/* Image */}
+      <div className="aspect-video bg-[var(--color-surface-variant)] rounded-[var(--radius-sm)] mb-4 flex items-center justify-center text-[var(--color-text-muted)] text-sm border border-[var(--color-border)] overflow-hidden">
+        {image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={image} alt={title} className="w-full h-full object-cover" />
+        ) : (
+          <span className="opacity-60">🖼️ {title}</span>
+        )}
+      </div>
 
-      <h3 className="text-lg font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+      <h3 className="text-xl font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
         {title}
       </h3>
 
-      <p className="mt-1.5 text-sm text-[var(--color-text-secondary)] line-clamp-2 leading-relaxed">
+      <p className="mt-2 text-sm text-[var(--color-text-secondary)] line-clamp-2 leading-relaxed">
         {shortDescription}
       </p>
 
-      {/* Metadata row: date + status */}
-      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-[var(--color-text-muted)]">
+      <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-[var(--color-text-muted)]">
         <span>{formatDate(startDate)} {endDate ? `- ${formatDate(endDate)}` : '- Sekarang'}</span>
         <Badge label={statusMap[status] || status} tone={status === 'completed' ? 'positive' : 'neutral'} />
       </div>
 
-      {/* Tags */}
       {tags && tags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {tags.slice(0, 3).map((tag) => (
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {tags.slice(0, 4).map((tag) => (
             <Tag key={tag} label={tag} />
           ))}
-          {tags.length > 3 && (
-            <span className="text-xs text-[var(--color-text-muted)]">
-              +{tags.length - 3} more
-            </span>
+          {tags.length > 4 && (
+            <span className="text-xs text-[var(--color-text-muted)] font-medium">+{tags.length - 4} more</span>
           )}
         </div>
       )}

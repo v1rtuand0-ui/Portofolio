@@ -15,7 +15,7 @@ export function SectionHeading({
   viewAllLabel = 'Lihat semua →',
 }: SectionHeadingProps) {
   return (
-    <div className="mb-8 md:mb-10">
+    <div className="mb-10 md:mb-14">
       <div className="flex items-end justify-between gap-4 flex-wrap">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-text-primary)]">
           {title}
@@ -23,7 +23,7 @@ export function SectionHeading({
         {viewAllHref && (
           <Link
             href={viewAllHref}
-            className="text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+            className="text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors"
           >
             {viewAllLabel}
           </Link>
