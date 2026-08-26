@@ -10,6 +10,7 @@ import { MobileNavigation } from './MobileNavigation';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
+  { href: '/education', label: 'Education' }, // TAMBAHKAN INI
   { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
   { href: '/activities', label: 'Activities' },

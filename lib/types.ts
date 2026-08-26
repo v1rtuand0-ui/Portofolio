@@ -47,7 +47,7 @@ export type ProjectCategory =
   | 'academic'
   | 'experiment'
   | 'side-project'
-  | 'competition';  // <--- TAMBAHKAN competition
+  | 'competition';
 
 export interface Project extends BaseEntry {
   slug: string; // required, unique
@@ -93,6 +93,7 @@ export interface Education extends BaseEntry {
   location?: string;       // Lokasi institusi
   achievements?: string[]; // Prestasi selama pendidikan
   link?: string;           // URL website institusi (opsional)
+  category?: 'formal' | 'bootcamp' | 'program' | 'other'; // TAMBAHKAN INI
 }
 
 // ---- Profile (12.5) ----

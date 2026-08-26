@@ -42,11 +42,9 @@ export default function Home() {
               {profile.introShort}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
+              {/* HANYA TOMBOL LIHAT PROYEK */}
               <Button variant="dark" size="md" asChild>
                 <a href="/projects">Lihat Proyek →</a>
-              </Button>
-              <Button variant="outlined" size="md" asChild>
-                <a href={`mailto:${profile.email}`}>Hubungi</a>
               </Button>
             </div>
           </div>
@@ -61,12 +59,18 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 2. Mission Banner — solid biru (fix dark mode) */}
-      <Section spacing="normal" className="!py-4 md:!py-6">
-        <div className="bg-[#1A73E8] dark:bg-[#1557B0] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12 text-center mx-auto" style={{ maxWidth: 'var(--container-wide)' }}>
-          <p className="text-2xl md:text-3xl font-bold text-white leading-snug max-w-3xl mx-auto">
-            Misi saya adalah membangun produk teknologi yang benar-benar membantu penggunanya — dari sistem AI hingga platform IoT.
+      {/* 2. About teaser — background biru solid */}
+      <Section spacing="large" containerVariant="reading">
+        <div className="bg-[#1A73E8] dark:bg-[#1557B0] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Tentang Saya</h2>
+          <p className="text-white/90 leading-relaxed">
+            {profile.aboutLong.slice(0, 300)}…
           </p>
+          <div className="mt-6">
+            <Button variant="outlined" size="md" asChild className="border-white text-white hover:bg-white/10 hover:border-white">
+              <a href="/about">Baca selengkapnya →</a>
+            </Button>
+          </div>
         </div>
       </Section>
 
@@ -110,23 +114,7 @@ export default function Home() {
         <ActivityList activities={featuredActivities} />
       </Section>
 
-      {/* 7. About teaser — tanpa wrapped (reading width) */}
-      <Section spacing="large" containerVariant="reading">
-        <SectionHeading title="Tentang Saya" />
-        <p className="text-[var(--color-text-secondary)] leading-relaxed">
-          {profile.aboutLong.slice(0, 300)}…
-        </p>
-        <div className="mt-4">
-          <a
-            href="/about"
-            className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium transition-colors"
-          >
-            Baca selengkapnya →
-          </a>
-        </div>
-      </Section>
-
-      {/* 8. Contact — gradient biru-putih */}
+      {/* 7. Contact — gradient biru-putih */}
       <Section spacing="large" containerVariant="reading" className="!py-6 md:!py-8">
         <div className="bg-[image:var(--gradient-contact)] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
           <SectionHeading title="Hubungi Saya" />

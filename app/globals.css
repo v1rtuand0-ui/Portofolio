@@ -49,7 +49,7 @@
   --shadow-card-hover: 0 12px 32px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.06);
   --shadow-container: 0 20px 60px rgba(0,0,0,.08);
 
-  /* RADIUS — TIDAK BERUBAH, tetap besar */
+  /* RADIUS — tetap besar */
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 32px;
@@ -68,6 +68,9 @@
 
   --container-wide: 1200px;
   --container-reading: 720px;
+
+  /* PAKSA BROWSER PAKAI LIGHT MODE UNTUK ELEMEN NATIVE */
+  color-scheme: light only;
 }
 
 /* ============================================
@@ -113,29 +116,7 @@
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* === DARK MODE (tetap di luar layer) === */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #202124;
-    --color-surface: #292A2D;
-    --color-surface-variant: #303134;
-    --color-page-bg: #17181A;
-    --color-text-primary: #E8EAED;
-    --color-text-secondary: #BDC1C6;
-    --color-text-muted: #9AA0A6;
-    --color-primary: #8AB4F8;
-    --color-primary-hover: #AECBFA;
-    --color-primary-light: #303134;
-    --color-primary-container: #394457;
-    --color-border: rgba(255,255,255,0.08);
-    --color-border-strong: rgba(255,255,255,0.15);
-    --color-success: #81C995;
-    --color-success-bg: #1E3A2F;
-    --color-error: #F28B82;
-    --color-error-bg: #3C1A1A;
-    --gradient-contact: linear-gradient(135deg, #202124 0%, #26314A 50%, #1A2A42 100%);
-    --shadow-card: 0 4px 16px rgba(0,0,0,.3), 0 1px 4px rgba(0,0,0,.2);
-    --shadow-card-hover: 0 12px 32px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.3);
-    --shadow-container: 0 20px 60px rgba(0,0,0,.5);
-  }
-}
+/* ============================================
+   DARK MODE — DIHAPUS TOTAL!
+   ============================================ */
+/* TIDAK ADA LAGI @media (prefers-color-scheme: dark) */

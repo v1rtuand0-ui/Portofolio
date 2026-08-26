@@ -25,3 +25,27 @@ export function getFeaturedEducation(limit: number = 4): Education[] {
 export function getEducationById(id: string): Education | undefined {
   return getAllEducation().find((e) => e.id === id);
 }
+
+/**
+ * Ambil data pendidikan berdasarkan kategori
+ * @param category - 'formal' | 'bootcamp' | 'program' | 'other'
+ */
+export function getEducationByCategory(category: Education['category']): Education[] {
+  return getAllEducation().filter((e) => e.category === category);
+}
+
+/**
+ * Ambil data pendidikan formal (kategori 'formal')
+ */
+export function getFormalEducation(): Education[] {
+  return getEducationByCategory('formal');
+}
+
+/**
+ * Ambil data bootcamp & program (kategori 'bootcamp' atau 'program')
+ */
+export function getBootcampEducation(): Education[] {
+  return getAllEducation().filter(
+    (e) => e.category === 'bootcamp' || e.category === 'program'
+  );
+}
