@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. Hero — tanpa wrapped, dengan blob teal soft */}
+      {/* 1. Hero — tanpa wrapped, dengan blob biru soft */}
       <Section spacing="large" containerVariant="reading" className="relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
           <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--color-primary)] opacity-[0.06] blur-[100px]" />
@@ -50,7 +50,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[var(--color-primary-light)] shadow-[var(--shadow-container)]">
+          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[var(--color-primary)] shadow-[var(--shadow-container)]">
             <Image
               src="/images/profile-placeholder.jpg"
               alt="Foto Vito"
@@ -61,9 +61,9 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 2. Mission Banner — solid teal (gaya video) */}
+      {/* 2. Mission Banner — solid biru (fix dark mode) */}
       <Section spacing="normal" className="!py-4 md:!py-6">
-        <div className="bg-[var(--color-primary)] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12 text-center mx-auto" style={{ maxWidth: 'var(--container-wide)' }}>
+        <div className="bg-[#1A73E8] dark:bg-[#1557B0] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12 text-center mx-auto" style={{ maxWidth: 'var(--container-wide)' }}>
           <p className="text-2xl md:text-3xl font-bold text-white leading-snug max-w-3xl mx-auto">
             Misi saya adalah membangun produk teknologi yang benar-benar membantu penggunanya — dari sistem AI hingga platform IoT.
           </p>
@@ -126,7 +126,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 8. Contact — gradient ungu-putih */}
+      {/* 8. Contact — gradient biru-putih */}
       <Section spacing="large" containerVariant="reading" className="!py-6 md:!py-8">
         <div className="bg-[image:var(--gradient-contact)] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
           <SectionHeading title="Hubungi Saya" />

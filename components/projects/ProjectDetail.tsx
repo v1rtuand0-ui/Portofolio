@@ -28,11 +28,11 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
     category,
   } = project;
 
-  const statusMap: Record<Project['status'], { icon: React.ElementType; label: string; tone: 'neutral' | 'positive' | 'muted' }> = {
-    'in-progress': { icon: Construction, label: 'In Progress', tone: 'neutral' },
+  const statusMap: Record<Project['status'], { icon: React.ElementType; label: string; tone: 'neutral' | 'positive' | 'muted' | 'info' }> = {
+    'in-progress': { icon: Construction, label: 'In Progress', tone: 'info' },
     completed: { icon: CheckCircle2, label: 'Selesai', tone: 'positive' },
     archived: { icon: Archive, label: 'Arsip', tone: 'muted' },
-    experiment: { icon: FlaskConical, label: 'Eksperimen', tone: 'neutral' },
+    experiment: { icon: FlaskConical, label: 'Eksperimen', tone: 'info' },
   };
 
   const statusInfo = statusMap[status];
@@ -74,8 +74,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         {shortDescription}
       </p>
 
-      {/* Full description */}
-      <div className="mt-8 prose prose-neutral max-w-none">
+      {/* Full description — hapus prose prose-neutral */}
+      <div className="mt-8">
         <div className="text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line">
           {fullDescription}
         </div>

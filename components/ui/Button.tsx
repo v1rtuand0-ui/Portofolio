@@ -54,12 +54,12 @@ const variants = {
     hover:bg-black/5
     dark:hover:bg-white/10
   `,
-  // BARU: solid hitam untuk CTA utama
+  // FIX: pakai warna solid yang tidak berubah di dark mode
   dark: `
-    bg-[var(--color-text-primary)]
+    bg-[#202124]
     text-white
     hover:bg-black
-    dark:bg-[var(--color-text-primary)]
+    dark:bg-[#202124]
     dark:text-white
     dark:hover:bg-black
   `,

@@ -70,46 +70,50 @@
   --container-reading: 720px;
 }
 
-/* === BASE RESET === */
-html { box-sizing: border-box; }
-*, *::before, *::after { box-sizing: inherit; }
+/* ============================================
+   BASE STYLES — DIBUNGKUS DENGAN @layer base
+   ============================================ */
+@layer base {
+  html { box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: inherit; }
 
-body {
-  background-color: var(--color-page-bg);
-  color: var(--color-text-primary);
-  font-family: var(--font-inter), Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  body {
+    background-color: var(--color-page-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-inter), Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 { font-size: 56px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 var(--space-3) 0; color: var(--color-text-primary); }
+  h2 { font-size: 36px; font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 var(--space-2) 0; }
+  h3 { font-size: 24px; font-weight: 600; line-height: 1.3; margin: 0 0 var(--space-1) 0; }
+  h4 { font-size: 18px; font-weight: 500; line-height: 1.4; margin: 0 0 var(--space-1) 0; }
+  p { font-size: 16px; line-height: 1.7; margin: 0 0 var(--space-3) 0; color: var(--color-text-secondary); }
+  small, .small { font-size: 14px; color: var(--color-text-muted); }
+
+  a { color: var(--color-primary); text-decoration: none; font-weight: 500; transition: all 0.2s ease; }
+  a:hover { color: var(--color-primary-hover); }
+
+  :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: var(--color-primary-light); color: var(--color-primary); }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
+    h3 { font-size: 20px; }
+  }
 }
 
-/* === TYPOGRAPHY — BOLD & BESAR (tetap) === */
-h1 { font-size: 56px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 var(--space-3) 0; color: var(--color-text-primary); }
-h2 { font-size: 36px; font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 var(--space-2) 0; }
-h3 { font-size: 24px; font-weight: 600; line-height: 1.3; margin: 0 0 var(--space-1) 0; }
-h4 { font-size: 18px; font-weight: 500; line-height: 1.4; margin: 0 0 var(--space-1) 0; }
-p { font-size: 16px; line-height: 1.7; margin: 0 0 var(--space-3) 0; color: var(--color-text-secondary); }
-small, .small { font-size: 14px; color: var(--color-text-muted); }
-
-a { color: var(--color-primary); text-decoration: none; font-weight: 500; transition: all 0.2s ease; }
-a:hover { color: var(--color-primary-hover); }
-
-:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 4px; }
-::selection { background: var(--color-primary-light); color: var(--color-primary); }
-
-@media (max-width: 640px) {
-  h1 { font-size: 36px; }
-  h2 { font-size: 28px; }
-  h3 { font-size: 20px; }
-}
-
+/* === REDUCED MOTION (tetap di luar layer) === */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* === DARK MODE === */
+/* === DARK MODE (tetap di luar layer) === */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #202124;

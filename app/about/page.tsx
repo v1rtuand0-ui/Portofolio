@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <Section spacing="large" containerVariant="reading">
       <SectionHeading title="Tentang Saya" />
-      <div className="prose prose-neutral max-w-none">
+      <div>
         <p className="text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line">
           {profile.aboutLong}
         </p>

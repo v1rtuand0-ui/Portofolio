@@ -14,17 +14,18 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   const { slug, title, shortDescription, tags, status, startDate, endDate, featured, image } = project;
 
-  const statusConfig: Record<Project['status'], { icon: React.ElementType; label: string; color: string }> = {
-    'in-progress': { icon: Construction, label: 'In Progress', color: 'text-[var(--color-primary)]' },
-    completed: { icon: CheckCircle2, label: 'Selesai', color: 'text-[var(--color-success)]' },
-    archived: { icon: Archive, label: 'Arsip', color: 'text-[var(--color-text-muted)]' },
-    experiment: { icon: FlaskConical, label: 'Eksperimen', color: 'text-[var(--color-primary)]' },
+  const statusConfig: Record<Project['status'], { icon: React.ElementType; label: string; color: string; tone: 'neutral' | 'positive' | 'muted' | 'info' }> = {
+    'in-progress': { icon: Construction, label: 'In Progress', color: 'text-[var(--color-primary)]', tone: 'info' },
+    completed: { icon: CheckCircle2, label: 'Selesai', color: 'text-[var(--color-success)]', tone: 'positive' },
+    archived: { icon: Archive, label: 'Arsip', color: 'text-[var(--color-text-muted)]', tone: 'muted' },
+    experiment: { icon: FlaskConical, label: 'Eksperimen', color: 'text-[var(--color-primary)]', tone: 'info' },
   };
 
   const statusInfo = statusConfig[status] || statusConfig['in-progress'];
   const StatusIcon = statusInfo.icon;
   const statusLabel = statusInfo.label;
   const statusColor = statusInfo.color;
+  const statusTone = statusInfo.tone;
 
   return (
     <Link
@@ -70,7 +71,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {statusLabel}
               </span>
             }
-            tone={status === 'completed' ? 'positive' : 'neutral'}
+            tone={statusTone}
           />
         </div>
 
