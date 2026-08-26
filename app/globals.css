@@ -1,48 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  /* PRIMARY — teal/tosca, warna utama pengganti biru Google */
-  --color-primary: #0D9488;
-  --color-primary-hover: #0B7A70;
-  --color-primary-light: #E0F5F3;
-  --color-primary-container: #B8E8E3;
+  /* PRIMARY — Google Blue */
+  --color-primary: #1A73E8;
+  --color-primary-hover: #1557B0;
+  --color-primary-light: #E8F0FE;
+  --color-primary-container: #D2E3FC;
 
-  /* GRADIENT AKSEN — ungu-biru */
-  --gradient-accent-start: #A78BFA;
-  --gradient-accent-mid: #C4B5FD;
-  --gradient-accent-end: #DDD6FE;
+  /* GRADIENT AKSEN — biru-ke-hijau muda Google */
+  --gradient-accent-start: #4285F4;
+  --gradient-accent-mid: #6BA3F5;
+  --gradient-accent-end: #A8C7FA;
   --gradient-accent: linear-gradient(135deg, var(--gradient-accent-start), var(--gradient-accent-mid), var(--gradient-accent-end));
 
-  /* GRADIENT CONTACT — ungu-putih soft diagonal */
-  --gradient-contact: linear-gradient(135deg, #FFFFFF 0%, #EDE9FE 50%, #C7D2FE 100%);
+  /* GRADIENT CONTACT — biru-putih sangat soft */
+  --gradient-contact: linear-gradient(135deg, #FFFFFF 0%, #F0F6FE 50%, #E1EDFC 100%);
 
-  /* BACKGROUND */
+  /* BACKGROUND — putih dominan */
   --color-background: #FFFFFF;
-  --color-surface: #F5F5F4;
-  --color-surface-variant: #EFEFED;
-  --color-page-bg: #ECECEA;
+  --color-surface: #F8F9FA;
+  --color-surface-variant: #F1F3F4;
+  --color-page-bg: #F1F3F4;
 
   /* TEXT */
-  --color-text-primary: #18181B;
-  --color-text-secondary: #52525B;
-  --color-text-muted: #A1A1AA;
+  --color-text-primary: #202124;
+  --color-text-secondary: #5F6368;
+  --color-text-muted: #80868B;
 
   /* BORDER */
   --color-border: rgba(0, 0, 0, 0.06);
   --color-border-strong: rgba(0, 0, 0, 0.12);
 
   /* STATUS */
-  --color-success: #0D9488;
-  --color-success-bg: #E0F5F3;
-  --color-error: #DC2626;
-  --color-error-bg: #FEE2E2;
+  --color-success: #1E8E3E;
+  --color-success-bg: #E6F4EA;
+  --color-error: #D93025;
+  --color-error-bg: #FCE8E6;
+  --color-warning: #F9AB00;
+  --color-warning-bg: #FEF7E0;
+
+  /* AKSEN PENDUKUNG — 4 warna khas Google */
+  --color-accent-red: #EA4335;
+  --color-accent-yellow: #FBBC04;
+  --color-accent-green: #34A853;
 
   /* SHADOW */
   --shadow-card: 0 4px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
   --shadow-card-hover: 0 12px 32px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.06);
   --shadow-container: 0 20px 60px rgba(0,0,0,.08);
 
-  /* RADIUS — JAUH lebih besar */
+  /* RADIUS — TIDAK BERUBAH, tetap besar */
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 32px;
@@ -59,7 +66,6 @@
   --space-7: 64px;
   --space-8: 96px;
 
-  /* CONTAINER */
   --container-wide: 1200px;
   --container-reading: 720px;
 }
@@ -79,7 +85,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* === TYPOGRAPHY — BOLD & BESAR ala video === */
+/* === TYPOGRAPHY — BOLD & BESAR (tetap) === */
 h1 { font-size: 56px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 var(--space-3) 0; color: var(--color-text-primary); }
 h2 { font-size: 36px; font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 var(--space-2) 0; }
 h3 { font-size: 24px; font-weight: 600; line-height: 1.3; margin: 0 0 var(--space-1) 0; }
@@ -106,20 +112,24 @@ a:hover { color: var(--color-primary-hover); }
 /* === DARK MODE === */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: #18181B;
-    --color-surface: #27272A;
-    --color-surface-variant: #3F3F46;
-    --color-page-bg: #0F0F10;
-    --color-text-primary: #FAFAFA;
-    --color-text-secondary: #D4D4D8;
-    --color-text-muted: #71717A;
-    --color-primary: #2DD4BF;
-    --color-primary-hover: #5EEAD4;
-    --color-primary-light: #134E4A;
-    --color-primary-container: #115E59;
+    --color-background: #202124;
+    --color-surface: #292A2D;
+    --color-surface-variant: #303134;
+    --color-page-bg: #17181A;
+    --color-text-primary: #E8EAED;
+    --color-text-secondary: #BDC1C6;
+    --color-text-muted: #9AA0A6;
+    --color-primary: #8AB4F8;
+    --color-primary-hover: #AECBFA;
+    --color-primary-light: #303134;
+    --color-primary-container: #394457;
     --color-border: rgba(255,255,255,0.08);
     --color-border-strong: rgba(255,255,255,0.15);
-    --gradient-contact: linear-gradient(135deg, #18181B 0%, #2D2A3A 50%, #1E293B 100%);
+    --color-success: #81C995;
+    --color-success-bg: #1E3A2F;
+    --color-error: #F28B82;
+    --color-error-bg: #3C1A1A;
+    --gradient-contact: linear-gradient(135deg, #202124 0%, #26314A 50%, #1A2A42 100%);
     --shadow-card: 0 4px 16px rgba(0,0,0,.3), 0 1px 4px rgba(0,0,0,.2);
     --shadow-card-hover: 0 12px 32px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.3);
     --shadow-container: 0 20px 60px rgba(0,0,0,.5);
