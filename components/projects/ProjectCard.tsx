@@ -27,7 +27,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${slug}`}
-      className="group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 transition-all duration-300 hover:bg-[var(--color-surface-variant)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2"
+      className="group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 border border-[var(--color-border)] transition-all duration-300 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-elevation-1)] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2"
     >
       {featured && (
         <div className="mb-4">
@@ -38,7 +38,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       )}
 
-      {/* Image — sekarang pakai komponen Image */}
+      {/* Image */}
       <div className="mb-4">
         <Image
           src={image}

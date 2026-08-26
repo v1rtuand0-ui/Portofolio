@@ -3,8 +3,8 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { X } from 'lucide-react';  // <--- TAMBAHKAN INI
-import { Button } from '@/components/ui/Button';  // <--- TAMBAHKAN INI
+import { X } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
 interface NavItem {
   href: string;
@@ -51,7 +51,7 @@ export function MobileNavigation({
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-50 bg-[var(--color-background)] md:hidden"
+      className="fixed inset-0 z-50 glass-surface-strong md:hidden"
       role="dialog"
       aria-modal="true"
       aria-label="Navigation menu"
@@ -60,10 +60,10 @@ export function MobileNavigation({
         {/* Close button */}
         <button
           onClick={onClose}
-          className="self-end p-2 text-[var(--color-text-primary)]"
+          className="self-end p-2 text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors"
           aria-label="Close navigation menu"
         >
-          <X className="w-6 h-6" />  {/* <--- GANTI INI */}
+          <X className="w-6 h-6" />
         </button>
 
         {/* Nav links */}
@@ -79,7 +79,7 @@ export function MobileNavigation({
                     className={`block transition-colors ${
                       isActive
                         ? 'text-[var(--color-primary)]'
-                        : 'text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)]'
+                        : 'text-[var(--color-text-primary)] hover:text-[var(--color-primary)]'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -100,7 +100,7 @@ export function MobileNavigation({
             asChild
           >
             <a
-              href="mailto:vito.pratama@gmail.com"  // TODO: ganti dengan email asli
+              href="mailto:vito.pratama@gmail.com" // TODO: ganti email asli
               onClick={onClose}
             >
               Contact via Email

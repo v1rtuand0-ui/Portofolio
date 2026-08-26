@@ -21,7 +21,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-white/20 transition-all duration-300">
+    <header className="sticky top-0 z-50 glass-surface-strong">
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link
