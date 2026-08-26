@@ -1,8 +1,9 @@
 // components/education/EducationGrid.tsx
 import type { Education } from '@/lib/types';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Image } from '@/components/ui/Image';
 import { formatDateRange } from '@/lib/utils';
+import { GraduationCap } from 'lucide-react';
+import Link from 'next/link';
 
 interface EducationGridProps {
   education: Education[];
@@ -25,28 +26,28 @@ export function EducationGrid({ education }: EducationGridProps) {
           href={edu.link || '#'}
           target={edu.link ? '_blank' : undefined}
           rel={edu.link ? 'noopener noreferrer' : undefined}
-          className={`group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-elevation-2)] transition-all duration-300 ${
+          className={`group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-elevation-1)] transition-all duration-300 ${
             !edu.link ? 'cursor-default' : ''
           }`}
         >
           <div className="flex flex-col items-center text-center">
-            {/* Logo */}
+            {/* Logo — pakai Image wrapper */}
             {edu.logo ? (
               <div className="w-16 h-16 relative mb-3 flex-shrink-0">
                 <Image
                   src={edu.logo}
                   alt={edu.school}
-                  fill
-                  className="object-contain"
+                  aspectRatio="square"
+                  containerClassName="w-full h-full"
                 />
               </div>
             ) : (
               <div className="w-16 h-16 rounded-full bg-[var(--color-primary-light)] flex items-center justify-center mb-3 flex-shrink-0">
-                <span className="text-2xl">🎓</span>
+                <GraduationCap className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
             )}
 
-            {/* Nama Sekolah/Institusi — HOVER EFFECT */}
+            {/* Nama Sekolah/Institusi */}
             <h3 className="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors duration-300 line-clamp-2">
               {edu.school}
             </h3>

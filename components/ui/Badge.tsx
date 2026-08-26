@@ -12,7 +12,7 @@ interface BadgeProps {
 
 const toneStyles: Record<BadgeTone, string> = {
   neutral: 'bg-[var(--color-surface-variant)] text-[var(--color-text-secondary)] border border-[var(--color-border)]',
-  positive: 'bg-[#E6F4EA] text-[var(--color-success)] border border-[#B7E1CD]',
+  positive: 'bg-[var(--color-success-bg)] text-[var(--color-success)] border border-[var(--color-success)]/20',
   muted: 'bg-[var(--color-surface-variant)] text-[var(--color-text-muted)] border border-[var(--color-border)]',
 };
 

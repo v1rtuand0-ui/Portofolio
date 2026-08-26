@@ -14,15 +14,17 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   const { slug, title, shortDescription, tags, status, startDate, endDate, featured, image } = project;
 
-  const statusConfig: Record<Project['status'], { icon: React.ElementType; label: string }> = {
-    'in-progress': { icon: Construction, label: 'In Progress' },
-    completed: { icon: CheckCircle2, label: 'Selesai' },
-    archived: { icon: Archive, label: 'Arsip' },
-    experiment: { icon: FlaskConical, label: 'Eksperimen' },
+  const statusConfig: Record<Project['status'], { icon: React.ElementType; label: string; color: string }> = {
+    'in-progress': { icon: Construction, label: 'In Progress', color: 'text-[var(--color-accent-blue)]' },
+    completed: { icon: CheckCircle2, label: 'Selesai', color: 'text-[var(--color-success)]' },
+    archived: { icon: Archive, label: 'Arsip', color: 'text-[var(--color-text-muted)]' },
+    experiment: { icon: FlaskConical, label: 'Eksperimen', color: 'text-[var(--color-accent-yellow)]' },
   };
 
-  const StatusIcon = statusConfig[status]?.icon || Construction;
-  const statusLabel = statusConfig[status]?.label || status;
+  const statusInfo = statusConfig[status] || statusConfig['in-progress'];
+  const StatusIcon = statusInfo.icon;
+  const statusLabel = statusInfo.label;
+  const statusColor = statusInfo.color;
 
   return (
     <Link
@@ -60,7 +62,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <span>{formatDate(startDate)} {endDate ? `- ${formatDate(endDate)}` : '- Sekarang'}</span>
         <Badge
           label={
-            <span className="flex items-center gap-1">
+            <span className={`flex items-center gap-1 ${statusColor}`}>
               <StatusIcon className="w-3 h-3" />
               {statusLabel}
             </span>

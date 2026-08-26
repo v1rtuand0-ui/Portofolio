@@ -22,9 +22,16 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. Hero — background putih */}
-      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-background)]">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-8 py-4">
+      {/* 1. Hero — background putih dengan blob dekoratif */}
+      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-background)] relative overflow-hidden">
+        {/* Blob dekoratif — biar efek glass di header keliatan */}
+        <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--color-accent-blue)] opacity-[0.06] blur-[100px]" />
+          <div className="absolute top-40 right-0 w-80 h-80 rounded-full bg-[var(--color-accent-yellow)] opacity-[0.05] blur-[100px]" />
+          <div className="absolute bottom-0 left-1/2 w-72 h-72 rounded-full bg-[var(--color-accent-green)] opacity-[0.04] blur-[100px]" />
+        </div>
+
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-8 py-4 relative z-10">
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-light tracking-tight">
               {profile.name}
@@ -44,7 +51,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[var(--color-primary-light)] shadow-[var(--shadow-elevation-2)]">
+          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[var(--color-primary-light)] shadow-[var(--shadow-elevation-2)]">
             <Image
               src="/images/profile-placeholder.jpg"
               alt="Foto Vito"
