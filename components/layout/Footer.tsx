@@ -3,24 +3,7 @@ import Link from 'next/link';
 import { Container } from './Container';
 import { getProfile } from '@/lib/content/profile';
 import { Mail } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-
-// Fungsi untuk mendapatkan icon dengan fallback
-const getIcon = (label: string): LucideIcon => {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const icons = require('lucide-react');
-    const iconMap: Record<string, string> = {
-      'GitHub': 'Github',
-      'LinkedIn': 'Linkedin',
-      'Twitter/X': 'Twitter',
-    };
-    const iconName = iconMap[label] || 'Mail';
-    return icons[iconName] || Mail;
-  } catch {
-    return Mail;
-  }
-};
+import * as SimpleIcons from '@icons-pack/react-simple-icons';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
@@ -29,6 +12,14 @@ const NAV_ITEMS = [
   { href: '/activities', label: 'Activities' },
   { href: '/about', label: 'About' },
 ];
+
+// Mapping label ke icon dengan fallback ke Mail
+const socialIconMap: Record<string, React.ElementType> = {
+  'GitHub': SimpleIcons.SiGithub || Mail,
+  'LinkedIn': SimpleIcons.SiLinkedin || Mail,
+  'Twitter/X': SimpleIcons.SiTwitter || Mail,
+  'Instagram': SimpleIcons.SiInstagram || Mail,
+};
 
 export function Footer() {
   const profile = getProfile();
@@ -87,7 +78,7 @@ export function Footer() {
               </a>
               <div className="flex gap-3 pt-2">
                 {profile.socialLinks.map((link) => {
-                  const Icon = getIcon(link.label);
+                  const Icon = socialIconMap[link.label] || Mail;
                   return (
                     <a
                       key={link.label}

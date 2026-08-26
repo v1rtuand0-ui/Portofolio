@@ -4,7 +4,8 @@ import { Tag } from '@/components/ui/Tag';
 import { Badge } from '@/components/ui/Badge';
 import { Image } from '@/components/ui/Image';
 import { formatDateRange } from '@/lib/utils';
-import { Construction, CheckCircle2, Archive, FlaskConical, Link2, Github } from 'lucide-react';
+import { Construction, CheckCircle2, Archive, FlaskConical, Link2 } from 'lucide-react';
+import { SiGithub } from '@icons-pack/react-simple-icons';
 import Link from 'next/link';
 
 interface ProjectDetailProps {
@@ -104,18 +105,21 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       {/* Links */}
       {links && links.length > 0 && (
         <div className="mt-8 pt-6 border-t border-[var(--color-border)] flex flex-wrap gap-3">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-[var(--radius-full)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all duration-200"
-            >
-              {link.label === 'GitHub' ? <Github className="w-4 h-4" /> : <Link2 className="w-4 h-4" />}
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const isGithub = link.label === 'GitHub';
+            return (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-[var(--radius-full)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all duration-200"
+              >
+                {isGithub ? <SiGithub className="w-4 h-4" /> : <Link2 className="w-4 h-4" />}
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       )}
 

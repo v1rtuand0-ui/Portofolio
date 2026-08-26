@@ -1,6 +1,7 @@
 // components/experience/ExperienceList.tsx
 import type { Experience } from '@/lib/types';
 import { ExperienceItem } from './ExperienceItem';
+import { Timeline } from '@/components/ui/Timeline';
 
 interface ExperienceListProps {
   experiences: Experience[];
@@ -16,10 +17,10 @@ export function ExperienceList({ experiences }: ExperienceListProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <Timeline>
       {experiences.map((exp) => (
         <ExperienceItem key={exp.id} experience={exp} />
       ))}
-    </div>
+    </Timeline>
   );
 }

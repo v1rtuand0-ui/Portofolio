@@ -1,6 +1,7 @@
 // components/activities/ActivityList.tsx
 import type { Activity } from '@/lib/types';
 import { ActivityItem } from './ActivityItem';
+import { Timeline } from '@/components/ui/Timeline';
 
 interface ActivityListProps {
   activities: Activity[];
@@ -16,10 +17,10 @@ export function ActivityList({ activities }: ActivityListProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <Timeline>
       {activities.map((activity) => (
         <ActivityItem key={activity.id} activity={activity} />
       ))}
-    </div>
+    </Timeline>
   );
 }

@@ -3,8 +3,9 @@ import Link from 'next/link';
 import type { Project } from '@/lib/types';
 import { Tag } from '@/components/ui/Tag';
 import { Badge } from '@/components/ui/Badge';
+import { Image } from '@/components/ui/Image';
 import { formatDate } from '@/lib/utils';
-import { Star, Construction, CheckCircle2, Archive, FlaskConical, ImageOff } from 'lucide-react';
+import { Star, Construction, CheckCircle2, Archive, FlaskConical } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -37,17 +38,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       )}
 
-      {/* Image */}
-      <div className="aspect-video bg-[var(--color-surface-variant)] rounded-[var(--radius-sm)] mb-4 flex items-center justify-center text-[var(--color-text-muted)] text-sm border border-[var(--color-border)] overflow-hidden">
-        {image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={image} alt={title} className="w-full h-full object-cover" />
-        ) : (
-          <div className="flex flex-col items-center gap-1 opacity-60">
-            <ImageOff className="w-8 h-8" />
-            <span>{title}</span>
-          </div>
-        )}
+      {/* Image — sekarang pakai komponen Image */}
+      <div className="mb-4">
+        <Image
+          src={image}
+          alt={title}
+          aspectRatio="video"
+          containerClassName="w-full"
+        />
       </div>
 
       <h3 className="text-xl font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
