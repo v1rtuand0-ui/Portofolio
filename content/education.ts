@@ -5,6 +5,7 @@ import type { Education } from '@/lib/types';
 const education: Education[] = [
   {
     id: 'edu-1',
+    title: 'Universitas Maritim Raja Ali Haji',
     school: 'Universitas Maritim Raja Ali Haji',
     degree: 'S1 Informatika',
     description: 'Fokus pada backend engineering, database optimasi, dan kecerdasan buatan. Aktif di organisasi kemahasiswaan dan kompetisi.',
@@ -24,6 +25,7 @@ const education: Education[] = [
   },
   {
     id: 'edu-2',
+    title: 'Bangkit Academy 2024',
     school: 'Bangkit Academy 2024',
     degree: 'Cloud Computing Cohort',
     description: 'Program studi independen bersertifikasi Google, mempelajari arsitektur cloud, microservices, dan machine learning engineering.',
@@ -42,6 +44,7 @@ const education: Education[] = [
   },
   {
     id: 'edu-3',
+    title: 'Google Developer Student Club — UMRAH',
     school: 'Google Developer Student Club — UMRAH',
     degree: 'Core Team Member',
     description: 'Bergabung dalam tim inti GDSC UMRAH, mengorganisir event dan workshop terkait teknologi Google.',
@@ -59,6 +62,7 @@ const education: Education[] = [
   },
   {
     id: 'edu-4',
+    title: 'SMA Negeri 1 Batam',
     school: 'SMA Negeri 1 Batam',
     degree: 'IPA',
     description: 'Lulus dengan predikat memuaskan, aktif di organisasi OSIS dan kegiatan ekstrakurikuler.',
