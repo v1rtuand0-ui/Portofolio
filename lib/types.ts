@@ -46,7 +46,8 @@ export type ProjectCategory =
   | 'open-source'
   | 'academic'
   | 'experiment'
-  | 'side-project';
+  | 'side-project'
+  | 'competition';  // <--- TAMBAHKAN competition
 
 export interface Project extends BaseEntry {
   slug: string; // required, unique
@@ -79,6 +80,19 @@ export interface Activity extends BaseEntry {
   type: ActivityType;
   location?: string;
   achievements?: string[];
+}
+
+// ============================================
+// EDUCATION — TAMBAHAN BARU
+// ============================================
+export interface Education extends BaseEntry {
+  school: string;          // Nama institusi
+  degree: string;          // Jurusan/program
+  logo?: string;           // Path ke file logo di public/images/logos/
+  gpa?: string;            // IPK (opsional)
+  location?: string;       // Lokasi institusi
+  achievements?: string[]; // Prestasi selama pendidikan
+  link?: string;           // URL website institusi (opsional)
 }
 
 // ---- Profile (12.5) ----

@@ -5,9 +5,11 @@ import { getProfile } from '@/lib/content/profile';
 import { getFeaturedProjects } from '@/lib/content/projects';
 import { getFeaturedExperiences } from '@/lib/content/experience';
 import { getFeaturedActivities } from '@/lib/content/activities';
+import { getFeaturedEducation } from '@/lib/content/education';
 import { ExperienceList } from '@/components/experience/ExperienceList';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { ActivityList } from '@/components/activities/ActivityList';
+import { EducationGrid } from '@/components/education/EducationGrid';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 
@@ -16,6 +18,7 @@ export default function Home() {
   const featuredProjects = getFeaturedProjects();
   const featuredExperiences = getFeaturedExperiences(5);
   const featuredActivities = getFeaturedActivities(4);
+  const featuredEducation = getFeaturedEducation(4);
 
   return (
     <>
@@ -52,8 +55,18 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 3. Selected Experience — background surface */}
+      {/* 2. Education — background surface */}
       <Section spacing="large" className="bg-[var(--color-surface)]">
+        <SectionHeading
+          title="Pendidikan & Bootcamp"
+          description="Institusi dan program yang membentuk perjalanan saya."
+          viewAllHref="/education"
+        />
+        <EducationGrid education={featuredEducation} />
+      </Section>
+
+      {/* 3. Selected Experience — background putih */}
+      <Section spacing="large" className="bg-[var(--color-background)]">
         <SectionHeading
           title="Pengalaman"
           description="Beberapa pengalaman paling relevan dan terkini."
@@ -62,8 +75,8 @@ export default function Home() {
         <ExperienceList experiences={featuredExperiences} />
       </Section>
 
-      {/* 4. Featured Projects — background putih */}
-      <Section spacing="large" className="bg-[var(--color-background)]">
+      {/* 4. Featured Projects — background surface */}
+      <Section spacing="large" className="bg-[var(--color-surface)]">
         <SectionHeading
           title="Proyek Pilihan"
           description="Proyek yang saya bangun — dari game hingga sistem backend."
@@ -72,8 +85,8 @@ export default function Home() {
         <ProjectGrid projects={featuredProjects} />
       </Section>
 
-      {/* 5. Organizations / Activities — background surface */}
-      <Section spacing="large" className="bg-[var(--color-surface)]">
+      {/* 5. Organizations / Activities — background putih */}
+      <Section spacing="large" className="bg-[var(--color-background)]">
         <SectionHeading
           title="Organisasi & Aktivitas"
           description="Keterlibatan di luar perkuliahan yang membentuk saya."
@@ -82,8 +95,8 @@ export default function Home() {
         <ActivityList activities={featuredActivities} />
       </Section>
 
-      {/* 6. About teaser — background putih */}
-      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-background)]">
+      {/* 6. About teaser — background surface */}
+      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-surface)]">
         <SectionHeading title="Tentang Saya" />
         <p className="text-[var(--color-text-secondary)] leading-relaxed">
           {profile.aboutLong.slice(0, 300)}…
@@ -98,8 +111,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 7. Contact — background surface */}
-      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-surface)]">
+      {/* 7. Contact — background putih */}
+      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-background)]">
         <SectionHeading title="Hubungi Saya" />
         <div className="space-y-3">
           <p className="text-[var(--color-text-secondary)]">

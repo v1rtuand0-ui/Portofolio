@@ -1,0 +1,74 @@
+// content/education.ts
+import type { Education } from '@/lib/types';
+
+// TODO: ganti dengan data asli
+const education: Education[] = [
+  {
+    id: 'edu-1',
+    school: 'Universitas Maritim Raja Ali Haji',
+    degree: 'S1 Informatika',
+    description: 'Fokus pada backend engineering, database optimasi, dan kecerdasan buatan. Aktif di organisasi kemahasiswaan dan kompetisi.',
+    startDate: '2022-08-01',
+    endDate: null,
+    featured: true,
+    tags: ['Backend', 'Database', 'AI'],
+    gpa: '3.82',
+    location: 'Batam, Kepulauan Riau',
+    logo: '/images/logos/umrah.png',
+    link: 'https://umrah.ac.id',
+    achievements: [
+      'Juara 2 Hackathon Kampus 2024',
+      'Asisten Praktikum Pemrograman Web',
+      'Ketua Umum HMTI 2024-2025',
+    ],
+  },
+  {
+    id: 'edu-2',
+    school: 'Bangkit Academy 2024',
+    degree: 'Cloud Computing Cohort',
+    description: 'Program studi independen bersertifikasi Google, mempelajari arsitektur cloud, microservices, dan machine learning engineering.',
+    startDate: '2024-02-01',
+    endDate: '2024-07-31',
+    featured: true,
+    tags: ['Google Cloud', 'Microservices', 'ML Engineering'],
+    location: 'Jakarta (Hybrid)',
+    logo: '/images/logos/bangkit.png',
+    link: 'https://grow.google/bangkit/',
+    achievements: [
+      'Lulus dengan predikat "Sangat Baik"',
+      'Membangun project akhir sistem rekomendasi berbasis GCP',
+      'Top 20% dari 500+ peserta',
+    ],
+  },
+  {
+    id: 'edu-3',
+    school: 'Google Developer Student Club — UMRAH',
+    degree: 'Core Team Member',
+    description: 'Bergabung dalam tim inti GDSC UMRAH, mengorganisir event dan workshop terkait teknologi Google.',
+    startDate: '2023-09-01',
+    endDate: '2024-05-31',
+    featured: false,
+    tags: ['Community', 'Event Organization', 'Public Speaking'],
+    location: 'Batam, Kepulauan Riau',
+    logo: '/images/logos/gdsc.png',
+    link: 'https://gdsc.community.dev/',
+    achievements: [
+      'Mengorganisir 4 workshop tentang Android dan Cloud',
+      'Menjadi mentor untuk 20+ peserta dalam program belajar bersama',
+    ],
+  },
+  {
+    id: 'edu-4',
+    school: 'SMA Negeri 1 Batam',
+    degree: 'IPA',
+    description: 'Lulus dengan predikat memuaskan, aktif di organisasi OSIS dan kegiatan ekstrakurikuler.',
+    startDate: '2019-07-01',
+    endDate: '2022-05-31',
+    featured: false,
+    tags: ['IPA', 'OSIS'],
+    location: 'Batam, Kepulauan Riau',
+    logo: '/images/logos/sman1batam.png',
+  },
+];
+
+export default education;

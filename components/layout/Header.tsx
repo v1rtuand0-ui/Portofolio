@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';  // <--- TAMBAHKAN INI
+import { Menu } from 'lucide-react';
 import { Container } from './Container';
 import { MobileNavigation } from './MobileNavigation';
 
@@ -21,9 +21,9 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="border-b border-[var(--color-border)] bg-[var(--color-background)] py-4">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-white/20 transition-all duration-300">
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between py-4">
           <Link
             href="/"
             className="text-xl font-bold tracking-tight text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors"
@@ -53,7 +53,7 @@ export function Header() {
               })}
               <li>
                 <a
-                  href="mailto:vito@example.com" // TODO: ganti dengan email asli
+                  href="mailto:vito.pratama@gmail.com" // TODO: ganti email asli
                   className="inline-flex items-center px-5 py-2 text-sm font-medium rounded-[var(--radius-full)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all duration-200 shadow-[var(--shadow-elevation-1)] hover:shadow-[var(--shadow-elevation-2)]"
                 >
                   Contact
@@ -69,7 +69,7 @@ export function Header() {
             aria-controls="mobile-navigation"
             aria-label="Open navigation menu"
           >
-            <Menu className="w-6 h-6" />  {/* <--- GANTI INI */}
+            <Menu className="w-6 h-6" />
           </button>
         </div>
       </Container>
