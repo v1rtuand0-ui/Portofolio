@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Menu } from 'lucide-react';  // <--- TAMBAHKAN INI
 import { Container } from './Container';
 import { MobileNavigation } from './MobileNavigation';
 
@@ -52,7 +53,7 @@ export function Header() {
               })}
               <li>
                 <a
-                  href="mailto:vito@example.com" // ganti dengan email asli
+                  href="mailto:vito@example.com" // TODO: ganti dengan email asli
                   className="inline-flex items-center px-5 py-2 text-sm font-medium rounded-[var(--radius-full)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all duration-200 shadow-[var(--shadow-elevation-1)] hover:shadow-[var(--shadow-elevation-2)]"
                 >
                   Contact
@@ -68,11 +69,7 @@ export function Header() {
             aria-controls="mobile-navigation"
             aria-label="Open navigation menu"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="7" x2="21" y2="7" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="17" x2="21" y2="17" />
-            </svg>
+            <Menu className="w-6 h-6" />  {/* <--- GANTI INI */}
           </button>
         </div>
       </Container>

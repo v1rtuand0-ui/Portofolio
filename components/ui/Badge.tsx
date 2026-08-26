@@ -1,8 +1,10 @@
 // components/ui/Badge.tsx
+import { ReactNode } from 'react';
+
 type BadgeTone = 'neutral' | 'positive' | 'muted';
 
 interface BadgeProps {
-  label: string;
+  label: ReactNode;
   tone?: BadgeTone;
 }
 

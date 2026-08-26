@@ -6,6 +6,7 @@ import type { Experience } from '@/lib/types';
 import { Tag } from '@/components/ui/Tag';
 import { Badge } from '@/components/ui/Badge';
 import { formatDateRange } from '@/lib/utils';
+import { ChevronDown } from 'lucide-react';  // <--- TAMBAHKAN INI
 
 interface ExperienceItemProps {
   experience: Experience;
@@ -36,7 +37,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+            <h3 className="text-lg font-medium text-[var(--color-text-primary)]">
               {role}
             </h3>
             <span className="text-[var(--color-text-secondary)]">·</span>
@@ -78,24 +79,12 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
         <div className="mt-3">
           <button
             onClick={toggleExpand}
-            className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors focus:outline-none"
+            className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors focus:outline-none"
             aria-expanded={isExpanded}
             aria-controls={`achievements-${experience.id}`}
           >
             <span>{isExpanded ? 'Sembunyikan' : 'Lihat'} pencapaian</span>
-            <svg
-              className={`w-4 h-4 transition-transform duration-200 ${
-                isExpanded ? 'rotate-180' : ''
-              }`}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
+            <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
           </button>
 
           <div

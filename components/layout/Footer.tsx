@@ -2,6 +2,25 @@
 import Link from 'next/link';
 import { Container } from './Container';
 import { getProfile } from '@/lib/content/profile';
+import { Mail } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+// Fungsi untuk mendapatkan icon dengan fallback
+const getIcon = (label: string): LucideIcon => {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const icons = require('lucide-react');
+    const iconMap: Record<string, string> = {
+      'GitHub': 'Github',
+      'LinkedIn': 'Linkedin',
+      'Twitter/X': 'Twitter',
+    };
+    const iconName = iconMap[label] || 'Mail';
+    return icons[iconName] || Mail;
+  } catch {
+    return Mail;
+  }
+};
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
@@ -15,55 +34,85 @@ export function Footer() {
   const profile = getProfile();
 
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-background)] py-8 md:py-12">
+    <footer className="border-t border-[var(--color-border)] bg-[var(--color-background)] py-12 md:py-16">
       <Container>
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          {/* Brand + copyright */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Kolom 1: Brand */}
           <div>
             <Link
               href="/"
-              className="text-sm font-bold text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors"
+              className="text-xl font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors"
             >
               {profile.name}
             </Link>
-            <p className="text-xs text-[var(--color-text-muted)] mt-1">
-              &copy; {new Date().getFullYear()} — built with Next.js &amp; Tailwind
+            <p className="mt-2 text-sm text-[var(--color-text-secondary)] max-w-xs">
+              {profile.positioning}
+            </p>
+            <p className="mt-4 text-xs text-[var(--color-text-muted)]">
+              &copy; {new Date().getFullYear()} — Built with Next.js &amp; Tailwind
             </p>
           </div>
 
-          {/* Nav mirror (footer) */}
-          <nav className="flex flex-wrap gap-4 text-sm" aria-label="Footer navigation">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Kolom 2: Navigasi */}
+          <div>
+            <h4 className="text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-wider mb-4">
+              Navigasi
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Social links */}
-          <div className="flex gap-3">
-            {profile.socialLinks.map((link) => (
+          {/* Kolom 3: Kontak & Sosial */}
+          <div>
+            <h4 className="text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-wider mb-4">
+              Hubungi
+            </h4>
+            <div className="space-y-2 text-sm">
               <a
-                key={link.label}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors text-sm"
+                href={`mailto:${profile.email}`}
+                className="flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
               >
-                {link.label}
+                <Mail className="w-4 h-4" />
+                {profile.email}
               </a>
-            ))}
-            {/* Email */}
-            <a
-              href={`mailto:${profile.email}`}
-              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors text-sm"
-            >
-              Email
-            </a>
+              <div className="flex gap-3 pt-2">
+                {profile.socialLinks.map((link) => {
+                  const Icon = getIcon(link.label);
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors"
+                      aria-label={link.label}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </a>
+                  );
+                })}
+                {profile.resumeUrl && (
+                  <a
+                    href={profile.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors text-sm"
+                  >
+                    Resume
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </Container>

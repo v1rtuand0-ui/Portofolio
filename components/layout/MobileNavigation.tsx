@@ -3,6 +3,8 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { X } from 'lucide-react';  // <--- TAMBAHKAN INI
+import { Button } from '@/components/ui/Button';  // <--- TAMBAHKAN INI
 
 interface NavItem {
   href: string;
@@ -61,19 +63,7 @@ export function MobileNavigation({
           className="self-end p-2 text-[var(--color-text-primary)]"
           aria-label="Close navigation menu"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X className="w-6 h-6" />  {/* <--- GANTI INI */}
         </button>
 
         {/* Nav links */}
@@ -88,7 +78,7 @@ export function MobileNavigation({
                     onClick={onClose}
                     className={`block transition-colors ${
                       isActive
-                        ? 'text-[var(--color-accent)]'
+                        ? 'text-[var(--color-primary)]'
                         : 'text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)]'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
@@ -103,13 +93,19 @@ export function MobileNavigation({
 
         {/* Contact CTA at bottom */}
         <div className="pt-6 border-t border-[var(--color-border)]">
-          <a
-            href="mailto:vito@example.com"
-            className="block w-full text-center py-3 text-sm font-medium rounded-[var(--radius-sm)] bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] transition-colors"
-            onClick={onClose}
+          <Button
+            variant="filled"
+            size="md"
+            className="w-full"
+            asChild
           >
-            Contact via Email
-          </a>
+            <a
+              href="mailto:vito.pratama@gmail.com"  // TODO: ganti dengan email asli
+              onClick={onClose}
+            >
+              Contact via Email
+            </a>
+          </Button>
         </div>
       </div>
     </div>

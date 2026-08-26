@@ -1,21 +1,55 @@
 // lib/utils.ts
 
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+
+/**
+ * Merge Tailwind classes safely
+ */
+export function cn(
+  ...inputs: ClassValue[]
+) {
+  return twMerge(
+    clsx(inputs)
+  );
+}
+
+
 /**
  * Format ISO date string to "MMM YYYY" (e.g., "Jan 2024")
  */
-export function formatDate(dateString: string | null | undefined): string {
-  if (!dateString) return 'Present';
+export function formatDate(
+  dateString: string | null | undefined
+): string {
+
+  if (!dateString) return "Present";
+
   try {
+
     const date = new Date(dateString);
-    if (isNaN(date.getTime())) return 'Invalid Date';
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
-      year: 'numeric',
-    });
+
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
+
+
+    return date.toLocaleDateString(
+      "en-US",
+      {
+        month: "short",
+        year: "numeric",
+      }
+    );
+
   } catch {
-    return 'Invalid Date';
+
+    return "Invalid Date";
+
   }
 }
+
+
 
 /**
  * Format date range for Experience/Activity entries
@@ -25,7 +59,17 @@ export function formatDateRange(
   startDate: string,
   endDate?: string | null
 ): string {
-  const start = formatDate(startDate);
-  const end = endDate ? formatDate(endDate) : 'Present';
+
+  const start =
+    formatDate(startDate);
+
+
+  const end =
+    endDate
+      ? formatDate(endDate)
+      : "Present";
+
+
   return `${start} — ${end}`;
+
 }

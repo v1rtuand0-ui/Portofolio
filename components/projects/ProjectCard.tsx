@@ -4,6 +4,7 @@ import type { Project } from '@/lib/types';
 import { Tag } from '@/components/ui/Tag';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate } from '@/lib/utils';
+import { Star, Construction, CheckCircle2, Archive, FlaskConical, ImageOff } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -12,22 +13,26 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   const { slug, title, shortDescription, tags, status, startDate, endDate, featured, image } = project;
 
-  const statusMap: Record<Project['status'], string> = {
-    'in-progress': '🚧 In Progress',
-    completed: '✅ Selesai',
-    archived: '📦 Arsip',
-    experiment: '🧪 Eksperimen',
+  const statusConfig: Record<Project['status'], { icon: React.ElementType; label: string }> = {
+    'in-progress': { icon: Construction, label: 'In Progress' },
+    completed: { icon: CheckCircle2, label: 'Selesai' },
+    archived: { icon: Archive, label: 'Arsip' },
+    experiment: { icon: FlaskConical, label: 'Eksperimen' },
   };
+
+  const StatusIcon = statusConfig[status]?.icon || Construction;
+  const statusLabel = statusConfig[status]?.label || status;
 
   return (
     <Link
       href={`/projects/${slug}`}
-      className="group block bg-[var(--color-background)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-6 hover:shadow-[var(--shadow-elevation-2)] hover:border-[var(--color-primary)] transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2"
+      className="group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 transition-all duration-300 hover:bg-[var(--color-surface-variant)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2"
     >
       {featured && (
         <div className="mb-4">
-          <span className="inline-flex items-center gap-1 text-xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-light)] px-3 py-1 rounded-[var(--radius-full)]">
-            <span className="text-sm">⭐</span> Featured
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-light)] px-3 py-1 rounded-[var(--radius-full)]">
+            <Star className="w-3.5 h-3.5" />
+            Featured
           </span>
         </div>
       )}
@@ -38,11 +43,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           // eslint-disable-next-line @next/next/no-img-element
           <img src={image} alt={title} className="w-full h-full object-cover" />
         ) : (
-          <span className="opacity-60">🖼️ {title}</span>
+          <div className="flex flex-col items-center gap-1 opacity-60">
+            <ImageOff className="w-8 h-8" />
+            <span>{title}</span>
+          </div>
         )}
       </div>
 
-      <h3 className="text-xl font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
+      <h3 className="text-xl font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
         {title}
       </h3>
 
@@ -52,7 +60,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-[var(--color-text-muted)]">
         <span>{formatDate(startDate)} {endDate ? `- ${formatDate(endDate)}` : '- Sekarang'}</span>
-        <Badge label={statusMap[status] || status} tone={status === 'completed' ? 'positive' : 'neutral'} />
+        <Badge
+          label={
+            <span className="flex items-center gap-1">
+              <StatusIcon className="w-3 h-3" />
+              {statusLabel}
+            </span>
+          }
+          tone={status === 'completed' ? 'positive' : 'neutral'}
+        />
       </div>
 
       {tags && tags.length > 0 && (
