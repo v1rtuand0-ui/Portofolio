@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Image } from '@/components/ui/Image';
 import { formatDateRange } from '@/lib/utils';
 import { Construction, CheckCircle2, Archive, FlaskConical, Link2 } from 'lucide-react';
-import { SiGithub } from '@icons-pack/react-simple-icons';
+import { FaGithub } from 'react-icons/fa6';
 import Link from 'next/link';
 
 interface ProjectDetailProps {
@@ -115,7 +115,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-[var(--radius-full)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all duration-200"
               >
-                {isGithub ? <SiGithub className="w-4 h-4" /> : <Link2 className="w-4 h-4" />}
+                {isGithub ? <FaGithub className="w-4 h-4" /> : <Link2 className="w-4 h-4" />}
                 {link.label}
               </a>
             );

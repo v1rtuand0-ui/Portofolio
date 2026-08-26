@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Container } from './Container';
 import { getProfile } from '@/lib/content/profile';
 import { Mail } from 'lucide-react';
-import * as SimpleIcons from '@icons-pack/react-simple-icons';
+import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
@@ -13,12 +13,11 @@ const NAV_ITEMS = [
   { href: '/about', label: 'About' },
 ];
 
-// Mapping label ke icon dengan fallback ke Mail
 const socialIconMap: Record<string, React.ElementType> = {
-  'GitHub': SimpleIcons.SiGithub || Mail,
-  'LinkedIn': SimpleIcons.SiLinkedin || Mail,
-  'Twitter/X': SimpleIcons.SiTwitter || Mail,
-  'Instagram': SimpleIcons.SiInstagram || Mail,
+  'GitHub': FaGithub,
+  'LinkedIn': FaLinkedin,
+  'Twitter/X': FaXTwitter,
+  'Instagram': FaInstagram,
 };
 
 export function Footer() {
