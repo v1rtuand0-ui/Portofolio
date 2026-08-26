@@ -7,6 +7,8 @@ interface SectionProps {
   spacing?: 'normal' | 'large';
   className?: string;
   containerVariant?: 'wide' | 'reading';
+  /** Bungkus section dalam card besar dengan radius XL & shadow (gaya video) */
+  wrapped?: boolean;
 }
 
 export function Section({
@@ -14,13 +16,23 @@ export function Section({
   spacing = 'large',
   className = '',
   containerVariant = 'wide',
+  wrapped = false,
 }: SectionProps) {
+  // Spacing lebih kecil kalau wrapped (karena card sudah punya padding internal)
   const paddingY =
-    spacing === 'large' ? 'py-20 md:py-28' : 'py-14 md:py-20';
+    spacing === 'large'
+      ? wrapped
+        ? 'py-6 md:py-8'
+        : 'py-12 md:py-16'
+      : wrapped
+      ? 'py-4 md:py-6'
+      : 'py-8 md:py-12';
 
   return (
     <section className={`${paddingY} ${className}`}>
-      <Container variant={containerVariant}>{children}</Container>
+      <Container variant={containerVariant} wrapped={wrapped}>
+        {children}
+      </Container>
     </section>
   );
 }

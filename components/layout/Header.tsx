@@ -21,7 +21,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 glass-surface-strong">
+    <header className="sticky top-0 z-50 bg-[var(--color-background)] border-b border-[var(--color-border)] shadow-[var(--shadow-card)]">
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link
@@ -54,7 +54,7 @@ export function Header() {
               <li>
                 <a
                   href="mailto:vito.pratama@gmail.com" // TODO: ganti email asli
-                  className="inline-flex items-center px-5 py-2 text-sm font-medium rounded-[var(--radius-full)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all duration-200 shadow-[var(--shadow-elevation-1)] hover:shadow-[var(--shadow-elevation-2)]"
+                  className="inline-flex items-center px-5 py-2 text-sm font-medium rounded-[var(--radius-full)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all duration-200"
                 >
                   Contact
                 </a>

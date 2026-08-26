@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "filled" | "tonal" | "outlined" | "text";
+type ButtonVariant = "filled" | "tonal" | "outlined" | "text" | "dark";
 type ButtonSize = "sm" | "md";
 
 interface BaseButtonProps {
@@ -53,6 +53,15 @@ const variants = {
     text-[var(--color-primary)]
     hover:bg-black/5
     dark:hover:bg-white/10
+  `,
+  // BARU: solid hitam untuk CTA utama
+  dark: `
+    bg-[var(--color-text-primary)]
+    text-white
+    hover:bg-black
+    dark:bg-[var(--color-text-primary)]
+    dark:text-white
+    dark:hover:bg-black
   `,
 };
 
@@ -125,7 +134,6 @@ export function Button(props: ButtonProps) {
       throw new Error("Button with asChild must have a single child element");
     }
     const child = children as React.ReactElement<any>;
-    // TypeScript aman dengan 'as any' karena kita sudah tahu struktur props
     return React.cloneElement(child, {
       className: cn(baseClasses, child.props.className),
       disabled: child.props.disabled || disabled,

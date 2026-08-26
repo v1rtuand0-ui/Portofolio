@@ -5,12 +5,15 @@ interface ContainerProps {
   children: ReactNode;
   /** 'wide' = ~1200px, 'reading' = ~720px (PRD Section 18) */
   variant?: 'wide' | 'reading';
+  /** Bungkus dalam card putih besar dengan radius XL & shadow (gaya video) */
+  wrapped?: boolean;
   className?: string;
 }
 
 export function Container({
   children,
   variant = 'wide',
+  wrapped = false,
   className = '',
 }: ContainerProps) {
   const maxWidth =
@@ -18,9 +21,14 @@ export function Container({
       ? 'var(--container-reading)'
       : 'var(--container-wide)';
 
+  const baseStyles = 'mx-auto px-4 md:px-6';
+  const wrappedStyles = wrapped
+    ? 'bg-[var(--color-background)] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] my-6 md:my-10 py-8 md:py-12'
+    : '';
+
   return (
     <div
-      className={`mx-auto px-4 md:px-6 ${className}`}
+      className={`${baseStyles} ${wrappedStyles} ${className}`}
       style={{ maxWidth }}
     >
       {children}

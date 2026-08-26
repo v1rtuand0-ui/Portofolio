@@ -26,7 +26,7 @@ export function EducationGrid({ education }: EducationGridProps) {
           href={edu.link || '#'}
           target={edu.link ? '_blank' : undefined}
           rel={edu.link ? 'noopener noreferrer' : undefined}
-          className={`group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-elevation-1)] transition-all duration-300 ${
+          className={`group block bg-[var(--color-surface)] rounded-[var(--radius-xl)] p-4 border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 ${
             !edu.link ? 'cursor-default' : ''
           }`}
         >

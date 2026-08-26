@@ -22,28 +22,27 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. Hero — background putih dengan blob dekoratif */}
-      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-background)] relative overflow-hidden">
-        {/* Blob dekoratif — biar efek glass di header keliatan */}
+      {/* 1. Hero — tanpa wrapped, dengan blob teal soft */}
+      <Section spacing="large" containerVariant="reading" className="relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--color-accent-blue)] opacity-[0.06] blur-[100px]" />
-          <div className="absolute top-40 right-0 w-80 h-80 rounded-full bg-[var(--color-accent-yellow)] opacity-[0.05] blur-[100px]" />
-          <div className="absolute bottom-0 left-1/2 w-72 h-72 rounded-full bg-[var(--color-accent-green)] opacity-[0.04] blur-[100px]" />
+          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--color-primary)] opacity-[0.06] blur-[100px]" />
+          <div className="absolute top-40 right-0 w-80 h-80 rounded-full bg-[var(--color-primary)] opacity-[0.05] blur-[100px]" />
+          <div className="absolute bottom-0 left-1/2 w-72 h-72 rounded-full bg-[var(--color-primary)] opacity-[0.04] blur-[100px]" />
         </div>
 
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 py-4 relative z-10">
           <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-light tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
               {profile.name}
             </h1>
-            <p className="text-xl md:text-2xl font-light text-[var(--color-text-secondary)] mt-2">
+            <p className="text-xl md:text-2xl font-medium text-[var(--color-text-secondary)] mt-2">
               {profile.positioning}
             </p>
             <p className="mt-4 text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
               {profile.introShort}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button variant="filled" size="md" asChild>
+              <Button variant="dark" size="md" asChild>
                 <a href="/projects">Lihat Proyek →</a>
               </Button>
               <Button variant="outlined" size="md" asChild>
@@ -51,7 +50,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[var(--color-primary-light)] shadow-[var(--shadow-elevation-2)]">
+          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[var(--color-primary-light)] shadow-[var(--shadow-container)]">
             <Image
               src="/images/profile-placeholder.jpg"
               alt="Foto Vito"
@@ -62,8 +61,17 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 2. Education — background surface */}
-      <Section spacing="large" className="bg-[var(--color-surface)]">
+      {/* 2. Mission Banner — solid teal (gaya video) */}
+      <Section spacing="normal" className="!py-4 md:!py-6">
+        <div className="bg-[var(--color-primary)] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12 text-center mx-auto" style={{ maxWidth: 'var(--container-wide)' }}>
+          <p className="text-2xl md:text-3xl font-bold text-white leading-snug max-w-3xl mx-auto">
+            Misi saya adalah membangun produk teknologi yang benar-benar membantu penggunanya — dari sistem AI hingga platform IoT.
+          </p>
+        </div>
+      </Section>
+
+      {/* 3. Education — wrapped card putih */}
+      <Section spacing="large" wrapped>
         <SectionHeading
           title="Pendidikan & Bootcamp"
           description="Institusi dan program yang membentuk perjalanan saya."
@@ -72,8 +80,8 @@ export default function Home() {
         <EducationGrid education={featuredEducation} />
       </Section>
 
-      {/* 3. Selected Experience — background putih */}
-      <Section spacing="large" className="bg-[var(--color-background)]">
+      {/* 4. Experience — wrapped card putih */}
+      <Section spacing="large" wrapped>
         <SectionHeading
           title="Pengalaman"
           description="Beberapa pengalaman paling relevan dan terkini."
@@ -82,8 +90,8 @@ export default function Home() {
         <ExperienceList experiences={featuredExperiences} />
       </Section>
 
-      {/* 4. Featured Projects — background surface */}
-      <Section spacing="large" className="bg-[var(--color-surface)]">
+      {/* 5. Projects — wrapped card putih */}
+      <Section spacing="large" wrapped>
         <SectionHeading
           title="Proyek Pilihan"
           description="Proyek yang saya bangun — dari game hingga sistem backend."
@@ -92,8 +100,8 @@ export default function Home() {
         <ProjectGrid projects={featuredProjects} />
       </Section>
 
-      {/* 5. Organizations / Activities — background putih */}
-      <Section spacing="large" className="bg-[var(--color-background)]">
+      {/* 6. Organizations / Activities — wrapped card putih */}
+      <Section spacing="large" wrapped>
         <SectionHeading
           title="Organisasi & Aktivitas"
           description="Keterlibatan di luar perkuliahan yang membentuk saya."
@@ -102,8 +110,8 @@ export default function Home() {
         <ActivityList activities={featuredActivities} />
       </Section>
 
-      {/* 6. About teaser — background surface */}
-      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-surface)]">
+      {/* 7. About teaser — tanpa wrapped (reading width) */}
+      <Section spacing="large" containerVariant="reading">
         <SectionHeading title="Tentang Saya" />
         <p className="text-[var(--color-text-secondary)] leading-relaxed">
           {profile.aboutLong.slice(0, 300)}…
@@ -118,41 +126,43 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 7. Contact — background putih */}
-      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-background)]">
-        <SectionHeading title="Hubungi Saya" />
-        <div className="space-y-3">
-          <p className="text-[var(--color-text-secondary)]">
-            Kirim email ke{' '}
-            <a
-              href={`mailto:${profile.email}`}
-              className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors font-medium"
-            >
-              {profile.email}
-            </a>
-          </p>
-          <div className="flex flex-wrap gap-4">
-            {profile.socialLinks.map(({ label, url }) => (
+      {/* 8. Contact — gradient ungu-putih */}
+      <Section spacing="large" containerVariant="reading" className="!py-6 md:!py-8">
+        <div className="bg-[image:var(--gradient-contact)] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
+          <SectionHeading title="Hubungi Saya" />
+          <div className="space-y-3">
+            <p className="text-[var(--color-text-secondary)]">
+              Kirim email ke{' '}
               <a
-                key={label}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                href={`mailto:${profile.email}`}
+                className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors font-medium"
               >
-                {label}
+                {profile.email}
               </a>
-            ))}
-            {profile.resumeUrl && (
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
-              >
-                Resume
-              </a>
-            )}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {profile.socialLinks.map(({ label, url }) => (
+                <a
+                  key={label}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
+              {profile.resumeUrl && (
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  Resume
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </Section>

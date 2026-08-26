@@ -51,7 +51,7 @@ export function MobileNavigation({
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-50 glass-surface-strong md:hidden"
+      className="fixed inset-0 z-50 bg-[var(--color-background)] md:hidden"
       role="dialog"
       aria-modal="true"
       aria-label="Navigation menu"
