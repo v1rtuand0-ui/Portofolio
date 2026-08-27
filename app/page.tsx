@@ -13,7 +13,7 @@ import { EducationGrid } from '@/components/education/EducationGrid';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 
-// Logo strip data — path sudah .svg
+// Logo strip data — tetap ada untuk desktop
 const heroLogos = [
   { src: '/images/logos/umrah.svg', alt: 'UMRAH' },
   { src: '/images/logos/gdsc.svg', alt: 'GDSC' },
@@ -37,7 +37,7 @@ export default function Home() {
 
           {/* Baris atas: teks kiri + foto kanan */}
           <div className="flex flex-row items-start gap-3">
-            {/* Kolom kiri — teks */}
+            {/* Kolom kiri — teks (nama + tagline saja) */}
             <div className="flex-1 flex flex-col min-w-0">
               <h1 className="text-3xl font-extrabold tracking-tight leading-[1.15] text-white">
                 {profile.name}
@@ -45,13 +45,10 @@ export default function Home() {
               <p className="mt-3 text-base font-medium leading-snug text-white/90">
                 {profile.positioning}
               </p>
-              <p className="mt-3 text-sm text-white/80 leading-relaxed line-clamp-3">
-                {profile.introShort}
-              </p>
             </div>
 
-            {/* Kolom kanan — foto (48%, dengan aspect ratio tetap) */}
-            <div className="relative w-[48%] flex-shrink-0">
+            {/* Kolom kanan — foto (58%, digeser turun, aspect ratio tetap) */}
+            <div className="relative w-[58%] flex-shrink-0 mt-6">
               <div className="w-full aspect-[4/5]">
                 <Image
                   src="/images/profile/hero-photo.png"
@@ -66,23 +63,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Baris bawah: Logo strip + CTA (full width) */}
+          {/* Baris bawah: CTA saja (logo strip & status dihapus) */}
           <div className="mt-7">
-            <div className="flex flex-wrap items-center gap-2.5">
-              {heroLogos.map((logo) => (
-                <span
-                  key={logo.alt}
-                  className="inline-flex items-center justify-center h-8 px-2.5 rounded-[var(--radius-md)] bg-white/95 shadow-sm"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-4 w-auto opacity-90"
-                  />
-                </span>
-              ))}
-            </div>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
               </Button>
@@ -90,10 +73,6 @@ export default function Home() {
                 <a href="/about">Tentang Saya</a>
               </Button>
             </div>
-            <span className="mt-3 inline-flex items-center gap-1.5 text-sm text-white/80">
-              <span className="w-2 h-2 rounded-full bg-[var(--color-accent-green)]" />
-              Open to Internship
-            </span>
           </div>
 
         </div>
