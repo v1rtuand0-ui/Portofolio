@@ -32,37 +32,42 @@ export default function Home() {
       {/* 1. Hero — REDESIGN (Desktop + Mobile) */}
       <section className="relative overflow-hidden bg-[var(--color-primary)]">
 
-        {/* ===== MOBILE (di bawah lg): foto sebagai layer, TIDAK OVERLAP ===== */}
-        <div className="lg:hidden relative min-h-[560px] max-h-[600px] px-6 pt-10 pb-8 flex flex-col">
+        {/* ===== MOBILE (di bawah lg): 2 KOLOM SEJAJAR (tidak overlay) ===== */}
+        <div className="lg:hidden px-6 pt-8 pb-10 flex flex-col">
 
-          {/* Foto — absolute di kanan, lebar 45% (tidak overlap dengan teks 52%) */}
-          <div className="absolute top-0 right-0 w-[45%] h-full">
-            <Image
-              src="/images/profile/hero-photo.png"
-              alt={`Foto ${profile.name}`}
-              fill
-              priority
-              aspectRatio="auto"
-              className="object-cover object-top"
-              containerClassName="w-full h-full rounded-none bg-transparent"
-            />
+          {/* Baris atas: teks kiri + foto kanan */}
+          <div className="flex flex-row items-start gap-4">
+            {/* Kolom kiri — teks (flex-1) */}
+            <div className="flex-1 flex flex-col">
+              <h1 className="text-3xl font-extrabold tracking-tight leading-[1.05] text-white">
+                {profile.name}
+              </h1>
+              <p className="mt-2 text-base font-medium text-white/90">
+                {profile.positioning}
+              </p>
+              <p className="mt-2 text-sm text-white/80 leading-relaxed line-clamp-3">
+                {profile.introShort}
+              </p>
+            </div>
+
+            {/* Kolom kanan — foto (42%, dengan aspect ratio tetap) */}
+            <div className="relative w-[42%] flex-shrink-0">
+              <div className="w-full aspect-[4/5]">
+                <Image
+                  src="/images/profile/hero-photo.png"
+                  alt={`Foto ${profile.name}`}
+                  fill
+                  priority
+                  aspectRatio="auto"
+                  className="object-cover object-top"
+                  containerClassName="w-full h-full rounded-none bg-transparent"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Teks — di atas foto (z-10), lebar 52% (total 45+52=97%, ada jeda 3%) */}
-          <div className="relative z-10 max-w-[52%] flex flex-col justify-start flex-1">
-            <h1 className="text-4xl font-extrabold tracking-tight leading-[1.05] text-white">
-              {profile.name}
-            </h1>
-            <p className="mt-3 text-lg font-medium text-white/90 line-clamp-2">
-              {profile.positioning}
-            </p>
-            <p className="mt-4 text-sm text-white/80 leading-relaxed line-clamp-3">
-              {profile.introShort}
-            </p>
-          </div>
-
-          {/* Logo strip + CTA — full width, di bagian bawah */}
-          <div className="relative z-10 mt-auto pt-6">
+          {/* Baris bawah: Logo strip + CTA (full width) */}
+          <div className="mt-6">
             <div className="flex flex-wrap items-center gap-2">
               {heroLogos.map((logo) => (
                 <span
