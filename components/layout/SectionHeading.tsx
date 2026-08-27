@@ -17,7 +17,7 @@ export function SectionHeading({
   return (
     <div className="mb-10 md:mb-14">
       <div className="flex items-end justify-between gap-4 flex-wrap">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-text-primary)]">
+        <h2 className="tracking-tight text-[var(--color-text-primary)]">
           {title}
         </h2>
         {viewAllHref && (

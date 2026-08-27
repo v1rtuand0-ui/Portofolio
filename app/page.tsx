@@ -146,9 +146,9 @@ export default function Home() {
 
       </section>
 
-      {/* 2. About teaser — background biru solid */}
-      <Section spacing="large" containerVariant="reading">
-        <div className="bg-[#1A73E8] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
+      {/* 2. About teaser — background biru solid (tetap wrapped card) */}
+      <Section spacing="large" containerVariant="reading" wrapped>
+        <div className="bg-[#1A73E8] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Tentang Saya</h2>
           <p className="text-white leading-relaxed">
             {profile.aboutLong.slice(0, 300)}…
@@ -161,7 +161,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 3. Education — wrapped card putih */}
+      {/* 3. Education — wrapped card putih (tetap) */}
       <Section spacing="large" wrapped>
         <SectionHeading
           title="Pendidikan & Bootcamp"
@@ -171,8 +171,8 @@ export default function Home() {
         <EducationGrid education={featuredEducation} />
       </Section>
 
-      {/* 4. Experience — wrapped card putih */}
-      <Section spacing="large" wrapped>
+      {/* 4. Experience — FLAT (tanpa wrapped, background surface) */}
+      <Section spacing="large" className="bg-[var(--color-surface)]">
         <SectionHeading
           title="Pengalaman"
           description="Beberapa pengalaman paling relevan dan terkini."
@@ -181,17 +181,19 @@ export default function Home() {
         <ExperienceList experiences={featuredExperiences} />
       </Section>
 
-      {/* 5. Projects — wrapped card putih */}
-      <Section spacing="large" wrapped>
-        <SectionHeading
-          title="Proyek Pilihan"
-          description="Proyek yang saya bangun — dari game hingga sistem backend."
-          viewAllHref="/projects"
-        />
-        <ProjectGrid projects={featuredProjects} />
+      {/* 5. Projects — FLAT (tanpa wrapped, background putih, border tipis) */}
+      <Section spacing="large" className="bg-[var(--color-background)]">
+        <div className="border-t border-[var(--color-border)] pt-8 md:pt-12">
+          <SectionHeading
+            title="Proyek Pilihan"
+            description="Proyek yang saya bangun — dari game hingga sistem backend."
+            viewAllHref="/projects"
+          />
+          <ProjectGrid projects={featuredProjects} />
+        </div>
       </Section>
 
-      {/* 6. Organizations / Activities — wrapped card putih */}
+      {/* 6. Organizations / Activities — wrapped card (tetap) */}
       <Section spacing="large" wrapped>
         <SectionHeading
           title="Organisasi & Aktivitas"
@@ -201,9 +203,9 @@ export default function Home() {
         <ActivityList activities={featuredActivities} />
       </Section>
 
-      {/* 7. Contact — gradient biru-putih */}
-      <Section spacing="large" containerVariant="reading" className="!py-6 md:!py-8">
-        <div className="bg-[image:var(--gradient-contact)] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
+      {/* 7. Contact — wrapped card (tetap) */}
+      <Section spacing="large" containerVariant="reading" className="!py-6 md:!py-8" wrapped>
+        <div className="bg-[image:var(--gradient-contact)] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12">
           <SectionHeading title="Hubungi Saya" />
           <div className="space-y-3">
             <p className="text-[var(--color-text-secondary)]">
@@ -241,6 +243,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
     </>
   );
 }

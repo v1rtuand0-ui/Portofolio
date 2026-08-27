@@ -6,7 +6,7 @@
   --color-primary-hover: #1557B0;
   --color-primary-light: #DDE8F7;
   --color-primary-container: #C5D9F0;
-  --color-on-primary-container: #145BB9; /* BARU: teks di atas primary-light/primary-container */
+  --color-on-primary-container: #145BB9;
 
   /* GRADIENT AKSEN — biru-ke-hijau muda Google */
   --gradient-accent-start: #4285F4;
@@ -26,18 +26,18 @@
   /* TEXT */
   --color-text-primary: #202124;
   --color-text-secondary: #5F6368;
-  --color-text-muted: #6A6F75; /* UPDATE: dari #6B7076 */
+  --color-text-muted: #6A6F75;
 
   /* BORDER */
   --color-border: rgba(0, 0, 0, 0.06);
   --color-border-strong: rgba(0, 0, 0, 0.12);
 
   /* STATUS */
-  --color-success: #0C7738;     /* UPDATE: dari #0D7A3A */
+  --color-success: #0C7738;
   --color-success-bg: #D4EDDA;
   --color-error: #B3261E;
   --color-error-bg: #F8D7DA;
-  --color-warning: #A85C00;     /* UPDATE: dari #B06000 */
+  --color-warning: #A85C00;
   --color-warning-bg: #FFF3CD;
 
   /* AKSEN PENDUKUNG — 4 warna khas Google */
@@ -45,10 +45,10 @@
   --color-accent-yellow: #FBBC04;
   --color-accent-green: #34A853;
 
-  /* SHADOW */
+  /* SHADOW — container shadow dikurangi intensitasnya */
   --shadow-card: 0 4px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
   --shadow-card-hover: 0 12px 32px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.06);
-  --shadow-container: 0 20px 60px rgba(0,0,0,.08);
+  --shadow-container: 0 8px 30px rgba(0,0,0,.05); /* REDUCED: dari 0 20px 60px rgba(0,0,0,.08) */
 
   /* RADIUS — tetap besar */
   --radius-sm: 12px;
