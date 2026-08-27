@@ -13,6 +13,13 @@ import { EducationGrid } from '@/components/education/EducationGrid';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 
+// Sementara — nanti pindah ke content/profile.ts
+const heroLogos = [
+  { src: '/images/logos/umrah.png', alt: 'UMRAH' },
+  { src: '/images/logos/gdsc.png', alt: 'GDSC' },
+  { src: '/images/logos/bangkit.png', alt: 'Bangkit Academy' },
+];
+
 export default function Home() {
   const profile = getProfile();
   const featuredProjects = getFeaturedProjects();
@@ -22,41 +29,69 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. Hero — tanpa wrapped, dengan blob biru soft */}
-      <Section spacing="large" containerVariant="reading" className="relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--color-primary)] opacity-[0.06] blur-[100px]" />
-          <div className="absolute top-40 right-0 w-80 h-80 rounded-full bg-[var(--color-primary)] opacity-[0.05] blur-[100px]" />
-          <div className="absolute bottom-0 left-1/2 w-72 h-72 rounded-full bg-[var(--color-primary)] opacity-[0.04] blur-[100px]" />
-        </div>
+      {/* 1. Hero — REDESIGN (background biru solid, teks putih, foto full-bleed) */}
+      <section className="relative overflow-hidden bg-[var(--color-primary)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[560px] md:min-h-[640px] lg:min-h-[720px]">
 
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-8 py-4 relative z-10">
-          <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          {/* KOLOM KIRI — teks putih */}
+          <div className="order-2 lg:order-1 flex flex-col justify-center
+                          px-6 md:px-10 py-12 lg:py-16
+                          max-w-xl lg:ml-auto lg:pr-10 xl:pr-16 w-full">
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
               {profile.name}
             </h1>
-            <p className="text-xl md:text-2xl font-medium text-[var(--color-text-secondary)] mt-2">
+
+            <p className="mt-3 text-xl md:text-2xl font-medium text-white/90">
               {profile.positioning}
             </p>
-            <p className="mt-4 text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
+
+            <p className="mt-5 max-w-md text-white/80 leading-relaxed">
               {profile.introShort}
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button variant="dark" size="md" asChild>
+
+            {/* Logo strip — pakai <img> biasa (karena file PNG aslinya SVG) */}
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+              {heroLogos.map((logo) => (
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-6 md:h-7 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition"
+                />
+              ))}
+            </div>
+
+            {/* Tombol CTA + chip status */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button variant="filled" size="md" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
               </Button>
+              <Button variant="outlined" size="md" asChild className="border-white/40 text-white hover:bg-white/10">
+                <a href="/about">Tentang Saya</a>
+              </Button>
+              <span className="inline-flex items-center gap-1.5 text-sm text-white/80">
+                <span className="w-2 h-2 rounded-full bg-[var(--color-accent-green)]" />
+                Open to Internship
+              </span>
             </div>
           </div>
-          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[var(--color-primary)] shadow-[var(--shadow-container)]">
+
+          {/* KOLOM KANAN — foto full-bleed, tanpa rounded */}
+          <div className="relative order-1 lg:order-2 h-[420px] sm:h-[480px] lg:h-auto w-full">
             <Image
-              src="/images/profile-placeholder.jpg"
-              alt="Foto Vito"
-              aspectRatio="square"
-              containerClassName="w-full h-full"
+              src="/images/profile/hero-photo.png"
+              alt={`Foto ${profile.name}`}
+              fill
+              priority
+              aspectRatio="auto"
+              className="object-cover object-[center_bottom]"
+              containerClassName="rounded-none bg-transparent w-full h-full"
             />
           </div>
+
         </div>
-      </Section>
+      </section>
 
       {/* 2. About teaser — background biru solid */}
       <Section spacing="large" containerVariant="reading">
