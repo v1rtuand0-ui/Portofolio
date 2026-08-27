@@ -8,7 +8,7 @@ const education: Education[] = [
     title: 'Universitas Maritim Raja Ali Haji',
     school: 'Universitas Maritim Raja Ali Haji',
     degree: 'S1 Informatika',
-    category: 'formal', // <-- TAMBAHKAN
+    category: 'formal',
     description: 'Fokus pada backend engineering, database optimasi, dan kecerdasan buatan. Aktif di organisasi kemahasiswaan dan kompetisi.',
     startDate: '2022-08-01',
     endDate: null,
@@ -16,7 +16,7 @@ const education: Education[] = [
     tags: ['Backend', 'Database', 'AI'],
     gpa: '3.82',
     location: 'Batam, Kepulauan Riau',
-    logo: '/images/logos/umrah.png',
+    logo: '/images/logos/umrah.svg',
     link: 'https://umrah.ac.id',
     achievements: [
       'Juara 2 Hackathon Kampus 2024',
@@ -29,14 +29,14 @@ const education: Education[] = [
     title: 'Bangkit Academy 2024',
     school: 'Bangkit Academy 2024',
     degree: 'Cloud Computing Cohort',
-    category: 'bootcamp', // <-- TAMBAHKAN
+    category: 'bootcamp',
     description: 'Program studi independen bersertifikasi Google, mempelajari arsitektur cloud, microservices, dan machine learning engineering.',
     startDate: '2024-02-01',
     endDate: '2024-07-31',
     featured: true,
     tags: ['Google Cloud', 'Microservices', 'ML Engineering'],
     location: 'Jakarta (Hybrid)',
-    logo: '/images/logos/bangkit.png',
+    logo: '/images/logos/bangkit.svg',
     link: 'https://grow.google/bangkit/',
     achievements: [
       'Lulus dengan predikat "Sangat Baik"',
@@ -49,14 +49,14 @@ const education: Education[] = [
     title: 'Google Developer Student Club — UMRAH',
     school: 'Google Developer Student Club — UMRAH',
     degree: 'Core Team Member',
-    category: 'program', // <-- TAMBAHKAN
+    category: 'program',
     description: 'Bergabung dalam tim inti GDSC UMRAH, mengorganisir event dan workshop terkait teknologi Google.',
     startDate: '2023-09-01',
     endDate: '2024-05-31',
     featured: false,
     tags: ['Community', 'Event Organization', 'Public Speaking'],
     location: 'Batam, Kepulauan Riau',
-    logo: '/images/logos/gdsc.png',
+    logo: '/images/logos/gdsc.svg',
     link: 'https://gdsc.community.dev/',
     achievements: [
       'Mengorganisir 4 workshop tentang Android dan Cloud',
@@ -68,14 +68,14 @@ const education: Education[] = [
     title: 'SMA Negeri 1 Batam',
     school: 'SMA Negeri 1 Batam',
     degree: 'IPA',
-    category: 'formal', // <-- TAMBAHKAN
+    category: 'formal',
     description: 'Lulus dengan predikat memuaskan, aktif di organisasi OSIS dan kegiatan ekstrakurikuler.',
     startDate: '2019-07-01',
     endDate: '2022-05-31',
     featured: false,
     tags: ['IPA', 'OSIS'],
     location: 'Batam, Kepulauan Riau',
-    logo: '/images/logos/sman1batam.png',
+    logo: '/images/logos/sman1batam.svg',
   },
 ];
 

@@ -13,11 +13,11 @@ import { EducationGrid } from '@/components/education/EducationGrid';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 
-// Sementara — nanti pindah ke content/profile.ts
+// Logo strip data — path sudah .svg (bukan .png)
 const heroLogos = [
-  { src: '/images/logos/umrah.png', alt: 'UMRAH' },
-  { src: '/images/logos/gdsc.png', alt: 'GDSC' },
-  { src: '/images/logos/bangkit.png', alt: 'Bangkit Academy' },
+  { src: '/images/logos/umrah.svg', alt: 'UMRAH' },
+  { src: '/images/logos/gdsc.svg', alt: 'GDSC' },
+  { src: '/images/logos/bangkit.svg', alt: 'Bangkit Academy' },
 ];
 
 export default function Home() {
@@ -29,9 +29,72 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. Hero — REDESIGN (background biru solid, teks putih, foto full-bleed) */}
+      {/* 1. Hero — REDESIGN (Desktop + Mobile) */}
       <section className="relative overflow-hidden bg-[var(--color-primary)]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[560px] md:min-h-[640px] lg:min-h-[720px]">
+
+        {/* ===== MOBILE (di bawah lg): foto sebagai layer ===== */}
+        <div className="lg:hidden relative min-h-[640px] px-6 pt-10 pb-8 flex flex-col">
+
+          {/* Foto — absolute di kanan, hanya isi ~55% lebar */}
+          <div className="absolute top-0 right-0 w-[55%] h-full">
+            <Image
+              src="/images/profile/hero-photo.png"
+              alt={`Foto ${profile.name}`}
+              fill
+              priority
+              aspectRatio="auto"
+              className="object-cover object-top"
+              containerClassName="w-full h-full rounded-none bg-transparent"
+            />
+          </div>
+
+          {/* Teks — di atas foto (z-10), lebar dibatasi supaya tidak numpuk sama foto */}
+          <div className="relative z-10 max-w-[60%] flex flex-col justify-start flex-1">
+            <h1 className="text-4xl font-extrabold tracking-tight leading-[1.05] text-white">
+              {profile.name}
+            </h1>
+            <p className="mt-3 text-lg font-medium text-white/90">
+              {profile.positioning}
+            </p>
+            <p className="mt-4 text-sm text-white/80 leading-relaxed">
+              {profile.introShort}
+            </p>
+          </div>
+
+          {/* Logo strip + CTA — full width, di bagian bawah */}
+          <div className="relative z-10 mt-auto pt-6">
+            <div className="flex flex-wrap items-center gap-3">
+              {heroLogos.map((logo) => (
+                <span
+                  key={logo.alt}
+                  className="inline-flex items-center justify-center h-8 px-2.5 rounded-[var(--radius-md)] bg-white/95 shadow-sm"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-4 w-auto opacity-90"
+                  />
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Button variant="filled" size="md" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
+                <a href="/projects">Lihat Proyek →</a>
+              </Button>
+              <Button variant="outlined" size="md" asChild className="border-white/40 text-white hover:bg-white/10">
+                <a href="/about">Tentang Saya</a>
+              </Button>
+            </div>
+            <span className="mt-3 inline-flex items-center gap-1.5 text-sm text-white/80">
+              <span className="w-2 h-2 rounded-full bg-[var(--color-accent-green)]" />
+              Open to Internship
+            </span>
+          </div>
+
+        </div>
+
+        {/* ===== DESKTOP (lg ke atas): 2 kolom ===== */}
+        <div className="hidden lg:grid lg:grid-cols-2 lg:items-center">
 
           {/* KOLOM KIRI — teks putih */}
           <div className="order-2 lg:order-1 flex flex-col justify-center
@@ -50,15 +113,19 @@ export default function Home() {
               {profile.introShort}
             </p>
 
-            {/* Logo strip — pakai <img> biasa (karena file PNG aslinya SVG) */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+            {/* Logo strip — badge putih */}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               {heroLogos.map((logo) => (
-                <img
+                <span
                   key={logo.alt}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-6 md:h-7 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition"
-                />
+                  className="inline-flex items-center justify-center h-9 px-3 rounded-[var(--radius-md)] bg-white/95 shadow-sm"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-5 w-auto opacity-90"
+                  />
+                </span>
               ))}
             </div>
 
@@ -77,20 +144,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* KOLOM KANAN — foto full-bleed, tanpa rounded */}
-          <div className="relative order-1 lg:order-2 h-[420px] sm:h-[480px] lg:h-auto w-full">
+          {/* KOLOM KANAN — foto proporsional (tidak ter-crop) */}
+          <div className="relative order-1 lg:order-2 w-full max-w-[420px] mx-auto lg:max-w-[480px] lg:mx-0 xl:max-w-[560px]">
             <Image
               src="/images/profile/hero-photo.png"
               alt={`Foto ${profile.name}`}
-              fill
+              width={1400}
+              height={1750}
               priority
               aspectRatio="auto"
-              className="object-cover object-[center_bottom]"
-              containerClassName="rounded-none bg-transparent w-full h-full"
+              className="object-cover object-top"
+              containerClassName="rounded-none bg-transparent w-full aspect-[4/5] lg:my-10"
             />
           </div>
 
         </div>
+
       </section>
 
       {/* 2. About teaser — background biru solid */}
