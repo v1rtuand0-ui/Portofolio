@@ -32,39 +32,34 @@ export default function Home() {
       {/* 1. Hero — REDESIGN (Desktop + Mobile) */}
       <section className="relative overflow-hidden bg-[var(--color-primary)]">
 
-        {/* ===== MOBILE (di bawah lg): 2 KOLOM SEJAJAR (tidak overlay) ===== */}
-        <div className="lg:hidden px-6 pt-8 pb-10 flex flex-col">
+        {/* ===== MOBILE (di bawah lg): foto besar di belakang, teks & CTA di depan ===== */}
+        <div className="lg:hidden relative min-h-[520px] px-6 pt-8 pb-10">
 
-          {/* Baris atas: teks kiri + foto kanan */}
-          <div className="flex flex-row items-start gap-3">
-            {/* Kolom kiri — teks (nama + tagline saja) */}
-            <div className="flex-1 flex flex-col min-w-0">
-              <h1 className="text-3xl font-extrabold tracking-tight leading-[1.15] text-white">
-                {profile.name}
-              </h1>
-              <p className="mt-3 text-base font-medium leading-snug text-white/90">
-                {profile.positioning}
-              </p>
-            </div>
-
-            {/* Kolom kanan — foto (58%, digeser turun, aspect ratio tetap) */}
-            <div className="relative w-[58%] flex-shrink-0 mt-6">
-              <div className="w-full aspect-[4/5]">
-                <Image
-                  src="/images/profile/hero-photo.png"
-                  alt={`Foto ${profile.name}`}
-                  fill
-                  priority
-                  aspectRatio="auto"
-                  className="object-cover object-top"
-                  containerClassName="w-full h-full rounded-none bg-transparent"
-                />
-              </div>
-            </div>
+          {/* Foto — absolute di kanan, BESAR, boleh overflow/terpotong (z-0, paling belakang) */}
+          <div className="absolute top-10 right-[-8%] z-0 w-[85%] aspect-[4/5]">
+            <Image
+              src="/images/profile/hero-photo.png"
+              alt={`Foto ${profile.name}`}
+              fill
+              priority
+              aspectRatio="auto"
+              className="object-cover object-top"
+              containerClassName="w-full h-full rounded-none bg-transparent"
+            />
           </div>
 
-          {/* Baris bawah: CTA saja (logo strip & status dihapus) */}
-          <div className="mt-7">
+          {/* Teks — nama + tagline, DI ATAS foto (z-10) */}
+          <div className="relative z-10 max-w-[62%] flex flex-col">
+            <h1 className="text-3xl font-extrabold tracking-tight leading-[1.15] text-white">
+              {profile.name}
+            </h1>
+            <p className="mt-3 text-base font-medium leading-snug text-white/90">
+              {profile.positioning}
+            </p>
+          </div>
+
+          {/* CTA — di bawah, DI ATAS foto juga (z-10) */}
+          <div className="relative z-10 mt-7">
             <div className="flex flex-wrap items-center gap-3">
               <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
