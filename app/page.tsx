@@ -35,8 +35,8 @@ export default function Home() {
         {/* ===== MOBILE (di bawah lg): foto besar di belakang, teks & CTA di depan ===== */}
         <div className="lg:hidden relative min-h-[520px] px-6 pt-8 pb-10">
 
-          {/* Foto — absolute di kanan, BESAR, boleh overflow/terpotong (z-0, paling belakang) */}
-          <div className="absolute bottom-0 right-[-16%] z-0 w-[90%] aspect-[4/5]">
+          {/* Foto — absolute di kanan, BESAR, overflow/terpotong (z-0) */}
+          <div className="absolute bottom-0 right-[-24%] z-0 w-[90%] aspect-[4/5]">
             <Image
               src="/images/profile/hero-photo.png"
               alt={`Foto ${profile.name}`}
@@ -48,8 +48,8 @@ export default function Home() {
             />
           </div>
 
-          {/* Teks — nama + tagline, DI ATAS foto (z-10) */}
-          <div className="relative z-10 max-w-[62%] flex flex-col mt-10">
+          {/* Teks — nama + tagline (z-10), didorong turun mt-20 */}
+          <div className="relative z-10 max-w-[62%] flex flex-col mt-20">
             <h1 className="text-3xl font-extrabold tracking-tight leading-[1.15] text-white">
               {profile.name}
             </h1>
@@ -58,8 +58,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* CTA — di bawah, DI ATAS foto juga (z-10) */}
-          <div className="relative z-10 mt-7">
+          {/* CTA — absolute, dipatok dari bawah (independen dari teks) */}
+          <div className="absolute z-10 bottom-8 left-6">
             <div className="flex flex-wrap items-center gap-3">
               <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
