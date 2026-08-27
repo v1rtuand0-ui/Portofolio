@@ -13,7 +13,7 @@ import { EducationGrid } from '@/components/education/EducationGrid';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 
-// Logo strip data — path sudah .svg (bukan .png)
+// Logo strip data — path sudah .svg
 const heroLogos = [
   { src: '/images/logos/umrah.svg', alt: 'UMRAH' },
   { src: '/images/logos/gdsc.svg', alt: 'GDSC' },
@@ -32,11 +32,11 @@ export default function Home() {
       {/* 1. Hero — REDESIGN (Desktop + Mobile) */}
       <section className="relative overflow-hidden bg-[var(--color-primary)]">
 
-        {/* ===== MOBILE (di bawah lg): foto sebagai layer ===== */}
-        <div className="lg:hidden relative min-h-[640px] px-6 pt-10 pb-8 flex flex-col">
+        {/* ===== MOBILE (di bawah lg): foto sebagai layer, TIDAK OVERLAP ===== */}
+        <div className="lg:hidden relative min-h-[560px] max-h-[600px] px-6 pt-10 pb-8 flex flex-col">
 
-          {/* Foto — absolute di kanan, hanya isi ~55% lebar */}
-          <div className="absolute top-0 right-0 w-[55%] h-full">
+          {/* Foto — absolute di kanan, lebar 45% (tidak overlap dengan teks 52%) */}
+          <div className="absolute top-0 right-0 w-[45%] h-full">
             <Image
               src="/images/profile/hero-photo.png"
               alt={`Foto ${profile.name}`}
@@ -48,44 +48,44 @@ export default function Home() {
             />
           </div>
 
-          {/* Teks — di atas foto (z-10), lebar dibatasi supaya tidak numpuk sama foto */}
-          <div className="relative z-10 max-w-[60%] flex flex-col justify-start flex-1">
+          {/* Teks — di atas foto (z-10), lebar 52% (total 45+52=97%, ada jeda 3%) */}
+          <div className="relative z-10 max-w-[52%] flex flex-col justify-start flex-1">
             <h1 className="text-4xl font-extrabold tracking-tight leading-[1.05] text-white">
               {profile.name}
             </h1>
-            <p className="mt-3 text-lg font-medium text-white/90">
+            <p className="mt-3 text-lg font-medium text-white/90 line-clamp-2">
               {profile.positioning}
             </p>
-            <p className="mt-4 text-sm text-white/80 leading-relaxed">
+            <p className="mt-4 text-sm text-white/80 leading-relaxed line-clamp-3">
               {profile.introShort}
             </p>
           </div>
 
           {/* Logo strip + CTA — full width, di bagian bawah */}
           <div className="relative z-10 mt-auto pt-6">
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2">
               {heroLogos.map((logo) => (
                 <span
                   key={logo.alt}
-                  className="inline-flex items-center justify-center h-8 px-2.5 rounded-[var(--radius-md)] bg-white/95 shadow-sm"
+                  className="inline-flex items-center justify-center h-7 px-2.5 rounded-[var(--radius-md)] bg-white/95 shadow-sm"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-4 w-auto opacity-90"
+                    className="h-3.5 w-auto opacity-90"
                   />
                 </span>
               ))}
             </div>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Button variant="filled" size="md" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
               </Button>
-              <Button variant="outlined" size="md" asChild className="border-white/40 text-white hover:bg-white/10">
+              <Button variant="outlined" size="sm" asChild className="border-white/40 text-white hover:bg-white/10">
                 <a href="/about">Tentang Saya</a>
               </Button>
             </div>
-            <span className="mt-3 inline-flex items-center gap-1.5 text-sm text-white/80">
+            <span className="mt-2 inline-flex items-center gap-1.5 text-xs text-white/80">
               <span className="w-2 h-2 rounded-full bg-[var(--color-accent-green)]" />
               Open to Internship
             </span>
