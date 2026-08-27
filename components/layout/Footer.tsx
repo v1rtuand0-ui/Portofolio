@@ -5,15 +5,6 @@ import { getProfile } from '@/lib/content/profile';
 import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
 
-const NAV_ITEMS = [
-  { href: '/', label: 'Home' },
-  { href: '/education', label: 'Education' }, // TAMBAHKAN
-  { href: '/experience', label: 'Experience' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/activities', label: 'Activities' },
-  { href: '/about', label: 'About' },
-];
-
 const socialIconMap: Record<string, React.ElementType> = {
   'GitHub': FaGithub,
   'LinkedIn': FaLinkedin,
@@ -27,7 +18,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-background)] py-12 md:py-16">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Kolom 1: Brand */}
           <div>
             <Link
@@ -44,26 +35,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Kolom 2: Navigasi */}
-          <div>
-            <h4 className="text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-wider mb-4">
-              Navigasi
-            </h4>
-            <ul className="space-y-2 text-sm">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Kolom 3: Kontak & Sosial */}
+          {/* Kolom 2: Kontak & Sosial */}
           <div>
             <h4 className="text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-wider mb-4">
               Hubungi

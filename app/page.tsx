@@ -146,18 +146,16 @@ export default function Home() {
 
       </section>
 
-      {/* 2. About teaser — background biru solid (tetap wrapped card) */}
-      <Section spacing="large" containerVariant="reading" wrapped>
-        <div className="bg-[#1A73E8] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Tentang Saya</h2>
-          <p className="text-white leading-relaxed">
-            {profile.aboutLong.slice(0, 300)}…
-          </p>
-          <div className="mt-6">
-            <Button variant="outlined" size="md" asChild className="border-white text-white hover:bg-white/10 hover:border-white">
-              <a href="/about">Baca selengkapnya →</a>
-            </Button>
-          </div>
+      {/* 2. About teaser — FLAT full-width biru (sama pola dengan Experience) */}
+      <Section spacing="large" containerVariant="reading" className="bg-[#1A73E8]">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Tentang Saya</h2>
+        <p className="text-white leading-relaxed">
+          {profile.aboutLong.slice(0, 300)}…
+        </p>
+        <div className="mt-6">
+          <Button variant="outlined" size="md" asChild className="border-white text-white hover:bg-white/10 hover:border-white">
+            <a href="/about">Baca selengkapnya →</a>
+          </Button>
         </div>
       </Section>
 
@@ -201,47 +199,6 @@ export default function Home() {
           viewAllHref="/activities"
         />
         <ActivityList activities={featuredActivities} />
-      </Section>
-
-      {/* 7. Contact — wrapped card (tetap) */}
-      <Section spacing="large" containerVariant="reading" className="!py-6 md:!py-8" wrapped>
-        <div className="bg-[image:var(--gradient-contact)] rounded-[var(--radius-xl)] px-6 md:px-10 py-8 md:py-12">
-          <SectionHeading title="Hubungi Saya" />
-          <div className="space-y-3">
-            <p className="text-[var(--color-text-secondary)]">
-              Kirim email ke{' '}
-              <a
-                href={`mailto:${profile.email}`}
-                className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors font-medium"
-              >
-                {profile.email}
-              </a>
-            </p>
-            <div className="flex flex-wrap gap-4">
-              {profile.socialLinks.map(({ label, url }) => (
-                <a
-                  key={label}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  {label}
-                </a>
-              ))}
-              {profile.resumeUrl && (
-                <a
-                  href={profile.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  Resume
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
       </Section>
 
     </>
