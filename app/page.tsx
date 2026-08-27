@@ -58,13 +58,18 @@ export default function Home() {
             </p>
           </div>
 
-          {/* CTA — absolute, dipatok dari bawah (independen dari teks) */}
-          <div className="absolute z-10 bottom-8 left-6">
+          {/* CTA — absolute, dipatok dari bawah (independen dari teks), tombol dinaikkan bottom-16 */}
+          <div className="absolute z-10 bottom-16 left-6">
             <div className="flex flex-wrap items-center gap-3">
               <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
               </Button>
-              <Button variant="outlined" size="sm" asChild className="border-white/40 text-white hover:bg-white/10">
+              <Button
+                variant="outlined"
+                size="sm"
+                asChild
+                className="bg-black/30 backdrop-blur-sm border-white/70 text-white hover:bg-white/10 hover:border-white/90"
+              >
                 <a href="/about">Tentang Saya</a>
               </Button>
             </div>
