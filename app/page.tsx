@@ -36,7 +36,7 @@ export default function Home() {
         <div className="lg:hidden relative min-h-[520px] px-6 pt-8 pb-10">
 
           {/* Foto — absolute di kanan, BESAR, boleh overflow/terpotong (z-0, paling belakang) */}
-          <div className="absolute top-10 right-[-8%] z-0 w-[85%] aspect-[4/5]">
+          <div className="absolute bottom-0 right-[-16%] z-0 w-[90%] aspect-[4/5]">
             <Image
               src="/images/profile/hero-photo.png"
               alt={`Foto ${profile.name}`}
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
 
           {/* Teks — nama + tagline, DI ATAS foto (z-10) */}
-          <div className="relative z-10 max-w-[62%] flex flex-col">
+          <div className="relative z-10 max-w-[62%] flex flex-col mt-10">
             <h1 className="text-3xl font-extrabold tracking-tight leading-[1.15] text-white">
               {profile.name}
             </h1>
