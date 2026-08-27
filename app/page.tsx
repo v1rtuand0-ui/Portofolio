@@ -13,13 +13,6 @@ import { EducationGrid } from '@/components/education/EducationGrid';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 
-// Logo strip data — tetap ada untuk desktop
-const heroLogos = [
-  { src: '/images/logos/umrah.svg', alt: 'UMRAH' },
-  { src: '/images/logos/gdsc.svg', alt: 'GDSC' },
-  { src: '/images/logos/bangkit.svg', alt: 'Bangkit Academy' },
-];
-
 export default function Home() {
   const profile = getProfile();
   const featuredProjects = getFeaturedProjects();
@@ -32,7 +25,7 @@ export default function Home() {
       {/* 1. Hero — REDESIGN (Desktop + Mobile) */}
       <section className="relative overflow-hidden bg-[var(--color-primary)]">
 
-        {/* ===== MOBILE (di bawah lg): foto besar di belakang, teks & CTA di depan ===== */}
+        {/* ===== MOBILE (di bawah lg): foto besar di belakang, teks & CTA ===== */}
         <div className="lg:hidden relative min-h-[520px] px-6 pt-8 pb-10">
 
           {/* Foto — absolute di kanan, BESAR, overflow/terpotong (z-0) */}
@@ -58,21 +51,11 @@ export default function Home() {
             </p>
           </div>
 
-          {/* CTA — absolute, dipatok dari bawah (independen dari teks), tombol dinaikkan bottom-16 */}
+          {/* CTA — hanya tombol "Lihat Proyek →" di mobile */}
           <div className="absolute z-10 bottom-16 left-6">
-            <div className="flex flex-wrap items-center gap-3">
-              <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
-                <a href="/projects">Lihat Proyek →</a>
-              </Button>
-              <Button
-                variant="outlined"
-                size="sm"
-                asChild
-                className="bg-black/30 backdrop-blur-sm border-white/70 text-white hover:bg-white/10 hover:border-white/90"
-              >
-                <a href="/about">Tentang Saya</a>
-              </Button>
-            </div>
+            <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
+              <a href="/projects">Lihat Proyek →</a>
+            </Button>
           </div>
 
         </div>
@@ -97,34 +80,11 @@ export default function Home() {
               {profile.introShort}
             </p>
 
-            {/* Logo strip — badge putih */}
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              {heroLogos.map((logo) => (
-                <span
-                  key={logo.alt}
-                  className="inline-flex items-center justify-center h-9 px-3 rounded-[var(--radius-md)] bg-white/95 shadow-sm"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-5 w-auto opacity-90"
-                  />
-                </span>
-              ))}
-            </div>
-
-            {/* Tombol CTA + chip status */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* Tombol CTA — hanya "Lihat Proyek →" di desktop */}
+            <div className="mt-8">
               <Button variant="filled" size="md" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
               </Button>
-              <Button variant="outlined" size="md" asChild className="border-white/40 text-white hover:bg-white/10">
-                <a href="/about">Tentang Saya</a>
-              </Button>
-              <span className="inline-flex items-center gap-1.5 text-sm text-white/80">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-accent-green)]" />
-                Open to Internship
-              </span>
             </div>
           </div>
 
@@ -146,27 +106,29 @@ export default function Home() {
 
       </section>
 
-      {/* 2. About teaser — FLAT full-width biru (sama pola dengan Experience) */}
-      <Section spacing="large" containerVariant="reading" className="bg-[#1A73E8]">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Tentang Saya</h2>
-        <p className="text-white leading-relaxed">
+      {/* 2. About teaser — FLAT putih (bg-surface) */}
+      <Section spacing="large" containerVariant="reading" className="bg-[var(--color-surface)]">
+        <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">Tentang Saya</h2>
+        <p className="text-[var(--color-text-secondary)] leading-relaxed">
           {profile.aboutLong.slice(0, 300)}…
         </p>
         <div className="mt-6">
-          <Button variant="outlined" size="md" asChild className="border-white text-white hover:bg-white/10 hover:border-white">
+          <Button variant="filled" size="md" asChild className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)]">
             <a href="/about">Baca selengkapnya →</a>
           </Button>
         </div>
       </Section>
 
-      {/* 3. Education — wrapped card putih (tetap) */}
-      <Section spacing="large" wrapped>
-        <SectionHeading
-          title="Pendidikan & Bootcamp"
-          description="Institusi dan program yang membentuk perjalanan saya."
-          viewAllHref="/education"
-        />
-        <EducationGrid education={featuredEducation} />
+      {/* 3. Education — FLAT (tanpa wrapped, background putih) */}
+      <Section spacing="large" className="bg-[var(--color-background)]">
+        <div className="border-t border-[var(--color-border)] pt-8 md:pt-12">
+          <SectionHeading
+            title="Pendidikan & Bootcamp"
+            description="Institusi dan program yang membentuk perjalanan saya."
+            viewAllHref="/education"
+          />
+          <EducationGrid education={featuredEducation} />
+        </div>
       </Section>
 
       {/* 4. Experience — FLAT (tanpa wrapped, background surface) */}
@@ -191,8 +153,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 6. Organizations / Activities — wrapped card (tetap) */}
-      <Section spacing="large" wrapped>
+      {/* 6. Organizations / Activities — FLAT (tanpa wrapped, background surface) */}
+      <Section spacing="large" className="bg-[var(--color-surface)]">
         <SectionHeading
           title="Organisasi & Aktivitas"
           description="Keterlibatan di luar perkuliahan yang membentuk saya."
