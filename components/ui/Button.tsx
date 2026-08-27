@@ -39,7 +39,7 @@ const variants = {
   `,
   tonal: `
     bg-[var(--color-primary-container)]
-    text-[var(--color-primary)]
+    text-[var(--color-on-primary-container)]
     hover:brightness-95
   `,
   outlined: `

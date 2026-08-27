@@ -13,7 +13,7 @@ export function Tag({ label, variant = 'neutral', className }: TagProps) {
   
   const variantStyles =
     variant === 'accent'
-      ? 'bg-[var(--color-primary-light)] text-[var(--color-primary)] border border-[var(--color-primary-container)]'
+      ? 'bg-[var(--color-primary-light)] text-[var(--color-on-primary-container)] border border-[var(--color-primary-container)]'
       : 'bg-[var(--color-surface-variant)] text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)]';
 
   return <span className={cn(baseStyles, variantStyles, className)}>{label}</span>;

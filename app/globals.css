@@ -4,8 +4,9 @@
   /* PRIMARY — Google Blue */
   --color-primary: #1A73E8;
   --color-primary-hover: #1557B0;
-  --color-primary-light: #DDE8F7; /* UPDATE: lebih gelap dari #E8F0FE untuk kontras */
-  --color-primary-container: #C5D9F0; /* UPDATE: lebih gelap dari #D2E3FC untuk kontras */
+  --color-primary-light: #DDE8F7;
+  --color-primary-container: #C5D9F0;
+  --color-on-primary-container: #145BB9; /* BARU: teks di atas primary-light/primary-container */
 
   /* GRADIENT AKSEN — biru-ke-hijau muda Google */
   --gradient-accent-start: #4285F4;
@@ -25,19 +26,19 @@
   /* TEXT */
   --color-text-primary: #202124;
   --color-text-secondary: #5F6368;
-  --color-text-muted: #6B7076; /* UPDATE: lebih gelap dari #80868B untuk kontras */
+  --color-text-muted: #6A6F75; /* UPDATE: dari #6B7076 */
 
   /* BORDER */
   --color-border: rgba(0, 0, 0, 0.06);
   --color-border-strong: rgba(0, 0, 0, 0.12);
 
-  /* STATUS — UPDATE semua untuk kontras lebih baik */
-  --color-success: #0D7A3A;     /* UPDATE: lebih gelap dari #1E8E3E */
-  --color-success-bg: #D4EDDA;  /* UPDATE: lebih gelap dari #E6F4EA */
-  --color-error: #B3261E;       /* UPDATE: lebih gelap dari #D93025 */
-  --color-error-bg: #F8D7DA;    /* UPDATE: lebih gelap dari #FCE8E6 */
-  --color-warning: #B06000;     /* UPDATE: jauh lebih gelap dari #F9AB00 */
-  --color-warning-bg: #FFF3CD;  /* UPDATE: lebih gelap dari #FEF7E0 */
+  /* STATUS */
+  --color-success: #0C7738;     /* UPDATE: dari #0D7A3A */
+  --color-success-bg: #D4EDDA;
+  --color-error: #B3261E;
+  --color-error-bg: #F8D7DA;
+  --color-warning: #A85C00;     /* UPDATE: dari #B06000 */
+  --color-warning-bg: #FFF3CD;
 
   /* AKSEN PENDUKUNG — 4 warna khas Google */
   --color-accent-red: #EA4335;

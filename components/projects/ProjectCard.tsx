@@ -44,7 +44,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
         {featured && (
           <div className="absolute top-4 left-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-light)] px-3 py-1 rounded-[var(--radius-full)]">
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--color-on-primary-container)] bg-[var(--color-primary-light)] px-3 py-1 rounded-[var(--radius-full)]">
               <Star className="w-3.5 h-3.5" />
               Featured
             </span>
