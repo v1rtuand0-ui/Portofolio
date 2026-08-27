@@ -11,7 +11,7 @@ export default function EducationPage() {
   return (
     <>
       {/* Bagian 1: Pendidikan Formal */}
-      <Section spacing="large" wrapped>
+      <Section spacing="large" wrapped className="!py-0 !my-0">
         <SectionHeading
           title="Pendidikan Formal"
           description="Riwayat pendidikan formal dari sekolah hingga perguruan tinggi."
@@ -21,7 +21,7 @@ export default function EducationPage() {
 
       {/* Bagian 2: Bootcamp & Program */}
       {bootcampEducation.length > 0 && (
-        <Section spacing="large" wrapped>
+        <Section spacing="large" wrapped className="!py-0 !my-0">
           <SectionHeading
             title="Bootcamp & Program"
             description="Program pelatihan dan pengembangan yang saya ikuti."

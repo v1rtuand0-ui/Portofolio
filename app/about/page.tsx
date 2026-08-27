@@ -8,21 +8,22 @@ export default function AboutPage() {
   const profile = getProfile();
 
   return (
-    <Section spacing="large" containerVariant="reading" wrapped>
-      <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-        {/* Kolom kiri: Foto */}
-        <div className="flex-shrink-0 md:w-48">
-          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-[var(--color-primary-light)] shadow-[var(--shadow-card)]">
+    <Section spacing="large" containerVariant="wide" wrapped>
+      <div className="flex flex-col md:flex-row gap-10 md:gap-16">
+        {/* Kolom kiri: Foto — lonjong kebawah di desktop (4:5) */}
+        <div className="flex-shrink-0 md:w-[200px]">
+          <div className="w-32 h-32 md:w-[200px] md:h-[250px] rounded-full overflow-hidden border-2 border-[var(--color-primary-light)] shadow-[var(--shadow-card)] mx-auto md:mx-0">
             <Image
               src="/images/profile/hero-photo.png"
               alt={`Foto ${profile.name}`}
               aspectRatio="square"
+              className="object-cover object-top"
               containerClassName="w-full h-full"
             />
           </div>
         </div>
 
-        {/* Kolom kanan: Teks */}
+        {/* Kolom kanan: Teks — lebar 2/3 */}
         <div className="flex-1 min-w-0">
           <SectionHeading title="Tentang Saya" />
 
