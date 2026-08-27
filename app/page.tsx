@@ -42,7 +42,6 @@ export default function Home() {
               {profile.introShort}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              {/* HANYA TOMBOL LIHAT PROYEK */}
               <Button variant="dark" size="md" asChild>
                 <a href="/projects">Lihat Proyek →</a>
               </Button>
@@ -61,9 +60,9 @@ export default function Home() {
 
       {/* 2. About teaser — background biru solid */}
       <Section spacing="large" containerVariant="reading">
-        <div className="bg-[#1A73E8] dark:bg-[#1557B0] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
+        <div className="bg-[#1A73E8] rounded-[var(--radius-xl)] shadow-[var(--shadow-container)] px-6 md:px-10 py-8 md:py-12 mx-auto" style={{ maxWidth: 'var(--container-reading)' }}>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Tentang Saya</h2>
-          <p className="text-white/90 leading-relaxed">
+          <p className="text-white leading-relaxed">
             {profile.aboutLong.slice(0, 300)}…
           </p>
           <div className="mt-6">

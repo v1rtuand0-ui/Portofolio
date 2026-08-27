@@ -8,7 +8,7 @@ export default function ExperiencePage() {
   const experiences = getAllExperiences();
 
   return (
-    <Section spacing="large">
+    <Section spacing="large" wrapped>
       <SectionHeading
         title="Semua Pengalaman"
         description="Riwayat lengkap perjalanan profesional dan organisasi."

@@ -8,7 +8,7 @@ export default function ActivitiesPage() {
   const activities = getAllActivities();
 
   return (
-    <Section spacing="large">
+    <Section spacing="large" wrapped>
       <SectionHeading
         title="Semua Aktivitas & Organisasi"
         description="Keterlibatan di komunitas, organisasi, dan event."

@@ -7,6 +7,7 @@ import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
+  { href: '/education', label: 'Education' }, // TAMBAHKAN
   { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
   { href: '/activities', label: 'Activities' },

@@ -51,7 +51,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       </div>
 
       {/* Judul & metadata */}
-      <h1 className="text-4xl md:text-5xl font-light tracking-tight">
+      <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
         {title}
       </h1>
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--color-text-secondary)]">

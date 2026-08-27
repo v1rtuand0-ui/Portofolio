@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <Section spacing="large" containerVariant="reading">
       <div className="py-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-light tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
           404
         </h1>
         <p className="mt-4 text-xl text-[var(--color-text-secondary)]">

@@ -47,21 +47,15 @@ const variants = {
     border-[var(--color-border)]
     text-[var(--color-text-primary)]
     hover:bg-black/5
-    dark:hover:bg-white/10
   `,
   text: `
     text-[var(--color-primary)]
     hover:bg-black/5
-    dark:hover:bg-white/10
   `,
-  // FIX: pakai warna solid yang tidak berubah di dark mode
   dark: `
     bg-[#202124]
     text-white
     hover:bg-black
-    dark:bg-[#202124]
-    dark:text-white
-    dark:hover:bg-black
   `,
 };
 
@@ -120,8 +114,6 @@ export function Button(props: ButtonProps) {
     before:bg-black/0
 
     hover:before:bg-black/10
-
-    dark:hover:before:bg-white/10
     `,
     variants[variant],
     sizes[size],

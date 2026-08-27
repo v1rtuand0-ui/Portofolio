@@ -8,7 +8,7 @@ export default function ProjectsPage() {
   const projects = getAllProjects();
 
   return (
-    <Section spacing="large">
+    <Section spacing="large" wrapped>
       <SectionHeading
         title="Semua Proyek"
         description="Kumpulan proyek yang saya kerjakan — dari eksperimen hingga produk."
