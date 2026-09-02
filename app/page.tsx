@@ -41,13 +41,17 @@ export default function Home() {
             />
           </div>
 
-          {/* Teks — nama + tagline (z-10), didorong turun mt-20 */}
+          {/* Teks — nama + tagline + intro (z-10), didorong turun mt-20 */}
           <div className="relative z-10 max-w-[62%] flex flex-col mt-20">
             <h1 className="text-3xl font-extrabold tracking-tight leading-[1.15] text-white">
               {profile.name}
             </h1>
             <p className="mt-3 text-base font-medium leading-snug text-white/90">
               {profile.positioning}
+            </p>
+            {/* TAMBAHKAN introShort di sini */}
+            <p className="mt-3 text-sm text-white/80 leading-relaxed line-clamp-3">
+              {profile.introShort}
             </p>
           </div>
 

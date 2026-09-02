@@ -3,8 +3,8 @@ import type { Profile } from '@/lib/types';
 
 // TODO: ganti dengan data asli
 const profile: Profile = {
-  name: 'Vito Pratama',
-  positioning: 'Student Builder · AI & Technology Enthusiast',
+  name: 'Virtuando Jagad Saputrana',
+  positioning: 'Software Developer & Technology Enthusiast',
   introShort:
     'Mahasiswa Informatika di Universitas Maritim Raja Ali Haji, Batam. ' +
     'Fokus membangun produk backend dan sistem yang scalable, dengan ketertarikan ' +
