@@ -25,10 +25,10 @@ export default function Home() {
       {/* 1. Hero — REDESIGN (Desktop + Mobile) */}
       <section className="relative overflow-hidden bg-[var(--color-primary)]">
 
-        {/* ===== MOBILE (di bawah lg): foto besar di belakang, teks & CTA ===== */}
+        {/* ===== MOBILE (di bawah lg): TETAP SAMA, TIDAK BERUBAH ===== */}
         <div className="lg:hidden relative min-h-[520px] px-6 pt-8 pb-10">
 
-          {/* Foto — absolute di kanan, BESAR, overflow/terpotong (z-0) */}
+          {/* Foto — absolute di kanan */}
           <div className="absolute bottom-0 right-[-24%] z-0 w-[90%] aspect-[4/5]">
             <Image
               src="/images/profile/hero-photo.png"
@@ -41,7 +41,7 @@ export default function Home() {
             />
           </div>
 
-          {/* Teks — nama + tagline + intro (z-10), didorong turun mt-20 */}
+          {/* Teks — nama + tagline + intro */}
           <div className="relative z-10 max-w-[62%] flex flex-col mt-20">
             <h1 className="text-3xl font-extrabold tracking-tight leading-[1.15] text-white">
               {profile.name}
@@ -49,13 +49,12 @@ export default function Home() {
             <p className="mt-3 text-base font-medium leading-snug text-white/90">
               {profile.positioning}
             </p>
-            {/* TAMBAHKAN introShort di sini */}
             <p className="mt-3 text-sm text-white/80 leading-relaxed line-clamp-3">
               {profile.introShort}
             </p>
           </div>
 
-          {/* CTA — hanya tombol "Lihat Proyek →" di mobile */}
+          {/* CTA — mobile */}
           <div className="absolute z-10 bottom-16 left-6">
             <Button variant="filled" size="sm" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
               <a href="/projects">Lihat Proyek →</a>
@@ -64,8 +63,8 @@ export default function Home() {
 
         </div>
 
-        {/* ===== DESKTOP (lg ke atas): 2 kolom ===== */}
-        <div className="hidden lg:grid lg:grid-cols-2 lg:items-center">
+        {/* ===== DESKTOP (lg ke atas): FOTO DIPERBESAR & RAPET KE BAWAH ===== */}
+        <div className="hidden lg:grid lg:grid-cols-2 lg:items-stretch">
 
           {/* KOLOM KIRI — teks putih */}
           <div className="order-2 lg:order-1 flex flex-col justify-center
@@ -84,7 +83,7 @@ export default function Home() {
               {profile.introShort}
             </p>
 
-            {/* Tombol CTA — hanya "Lihat Proyek →" di desktop */}
+            {/* Tombol CTA — desktop */}
             <div className="mt-8">
               <Button variant="filled" size="md" asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
                 <a href="/projects">Lihat Proyek →</a>
@@ -92,17 +91,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* KOLOM KANAN — foto proporsional (tidak ter-crop) */}
-          <div className="relative order-1 lg:order-2 w-full max-w-[420px] mx-auto lg:max-w-[480px] lg:mx-0 xl:max-w-[560px]">
+          {/* KOLOM KANAN — foto lebih besar, rapet ke bawah */}
+          <div className="relative order-1 lg:order-2 w-full max-w-[560px] mx-auto lg:max-w-[640px] lg:mx-0 xl:max-w-[720px]">
             <Image
               src="/images/profile/hero-photo.png"
               alt={`Foto ${profile.name}`}
-              width={1400}
-              height={1750}
+              width={2000}
+              height={2500}
               priority
               aspectRatio="auto"
               className="object-cover object-top"
-              containerClassName="rounded-none bg-transparent w-full aspect-[4/5] lg:my-10"
+              containerClassName="rounded-none bg-transparent w-full aspect-[4/5] lg:my-0"
             />
           </div>
 
