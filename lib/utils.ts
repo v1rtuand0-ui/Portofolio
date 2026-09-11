@@ -17,7 +17,7 @@ export function cn(
 
 
 /**
- * Format ISO date string to "MMM YYYY" (e.g., "Jan 2024")
+ * Format ISO date string to year only (e.g., "2024")
  */
 export function formatDate(
   dateString: string | null | undefined
@@ -33,14 +33,7 @@ export function formatDate(
       return "Invalid Date";
     }
 
-
-    return date.toLocaleDateString(
-      "en-US",
-      {
-        month: "short",
-        year: "numeric",
-      }
-    );
+    return date.getFullYear().toString();
 
   } catch {
 
@@ -53,7 +46,7 @@ export function formatDate(
 
 /**
  * Format date range for Experience/Activity entries
- * Example: "Jan 2024 - Present" or "Jan 2024 - Mar 2024"
+ * Example: "2024 - Present" or "2022 - 2024"
  */
 export function formatDateRange(
   startDate: string,
@@ -70,6 +63,6 @@ export function formatDateRange(
       : "Present";
 
 
-  return `${start} — ${end}`;
+  return `${start} - ${end}`;
 
 }

@@ -1,60 +1,41 @@
 // content/experience.ts
 import type { Experience } from '@/lib/types';
 
-// TODO: ganti dengan data asli
 const experiences: Experience[] = [
   {
     id: 'exp-1',
-    company: 'HMTI — Universitas Maritim Raja Ali Haji',
-    role: 'Ketua Umum',
-    employmentType: 'organization',
-    title: 'Ketua Umum HMTI',
+    company: 'Himpunan Mahasiswa Teknik Informatika (HMTI)',
+    role: 'Leader Magang: Divisi Penelitian dan Pengembangan (Litbang)',
+    employmentType: 'internship',
+    title: 'Leader Magang: Divisi Litbang HMTI',
     description:
-      'Memimpin organisasi mahasiswa Informatika UMRAH, mengkoordinasikan kegiatan akademik dan non-akademik untuk 200+ anggota.',
-    startDate: '2024-08-01',
-    endDate: null,
+      'Dipercaya menjabat sebagai Leader Magang untuk Divisi Penelitian dan Pengembangan (Litbang). Bertanggung jawab memimpin tim magang, mengelola pembagian tugas, memonitor progres kerja, serta menjembatani komunikasi strategis antara anggota magang dan pengurus harian.',
+    startDate: '2025-01-01',
+    endDate: '2025-12-31',
     featured: true,
-    tags: ['Leadership', 'Organization', 'Event Management'],
+    tags: ['Leadership', 'Research & Development', 'Team Management'],
     achievements: [
-      'Menyelenggarakan 5+ workshop dan seminar teknologi',
-      'Meningkatkan partisipasi anggota dalam kegiatan akademik 30%',
-      'Membangun sistem manajemen internal berbasis web',
-      'Menjalin kerjasama dengan 3 perusahaan teknologi lokal',
+      'Memimpin tim magang di Divisi Litbang',
+      'Mengelola pembagian tugas & monitoring progres tim',
+      'Menjembatani komunikasi antara anggota magang dan pengurus harian',
     ],
   },
   {
     id: 'exp-2',
-    company: 'TechStart Studio',
-    role: 'Backend Intern',
-    employmentType: 'internship',
-    title: 'Backend Intern',
+    company: 'Bootcamp U&IXELENCE 2025 x ADS',
+    role: 'Front-End Developer: Best Project Team Awardee',
+    employmentType: 'other',
+    title: 'Front-End Developer: Best Project Team',
     description:
-      'Magang sebagai backend developer di startup edutech, fokus pada pengembangan API dan optimasi database.',
-    startDate: '2024-06-01',
-    endDate: '2024-08-30',
+      'Meraih penghargaan Best Project Team dalam U&IXELENCE. Berperan sebagai Front-End Developer dalam tim beranggotakan 6 orang, berkolaborasi erat dengan UI/UX Designer untuk merealisasikan desain menjadi website yang utuh dan responsif.',
+    startDate: '2025-01-01',
+    endDate: '2025-12-31',
     featured: true,
-    tags: ['Node.js', 'PostgreSQL', 'REST API', 'Docker'],
+    tags: ['Front-End Development', 'UI/UX Implementation', 'Award'],
     achievements: [
-      'Membangun 10+ REST API endpoints untuk modul pembelajaran',
-      'Mengoptimalkan query database sehingga response time turun 40%',
-      'Membantu migrasi server dari monolith ke microservices',
-    ],
-  },
-  {
-    id: 'exp-3',
-    company: 'Google Developer Student Club — UMRAH',
-    role: 'Core Team Member',
-    employmentType: 'organization',
-    title: 'Core Team Member GDSC',
-    description:
-      'Bergabung dalam tim inti GDSC UMRAH, mengorganisir event dan workshop terkait teknologi Google.',
-    startDate: '2023-09-01',
-    endDate: '2024-05-31',
-    featured: false,
-    tags: ['Community', 'Event Organization', 'Public Speaking'],
-    achievements: [
-      'Mengorganisir 4 workshop tentang Android dan Cloud',
-      'Menjadi mentor untuk 20+ peserta dalam program belajar bersama',
+      'Meraih penghargaan Best Project Team',
+      'Mengimplementasikan design ke kode (slicing)',
+      'Memastikan website responsif di berbagai device',
     ],
   },
 ];

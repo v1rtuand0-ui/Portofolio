@@ -12,8 +12,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Vito — Student Builder · AI & Technology Enthusiast',
-  description: 'Personal portfolio of Vito — Informatics Engineering student.',
+  title: 'Virtuando Jagad Saputrana | Software Developer & Technology Enthusiast',
+  description: 'Personal portfolio of Virtuando Jagad Saputrana - Informatics Engineering student at Universitas Maritim Raja Ali Haji.',
 };
 
 export default function RootLayout({

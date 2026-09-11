@@ -31,7 +31,7 @@ export function Footer() {
               {profile.positioning}
             </p>
             <p className="mt-4 text-xs text-[var(--color-text-muted)]">
-              &copy; {new Date().getFullYear()} — Built with Next.js &amp; Tailwind
+              &copy; {new Date().getFullYear()} | Built with Next.js &amp; Tailwind
             </p>
           </div>
 

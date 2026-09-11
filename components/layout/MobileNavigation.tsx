@@ -100,7 +100,7 @@ export function MobileNavigation({
             asChild
           >
             <a
-              href="mailto:vito.pratama@gmail.com" // TODO: ganti email asli
+              href="mailto:virtuandojs611@gmail.com"
               onClick={onClose}
             >
               Contact via Email

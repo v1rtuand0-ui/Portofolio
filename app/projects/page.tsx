@@ -11,7 +11,7 @@ export default function ProjectsPage() {
     <Section spacing="large" wrapped>
       <SectionHeading
         title="Semua Proyek"
-        description="Kumpulan proyek yang saya kerjakan — dari eksperimen hingga produk."
+        description="Kumpulan proyek yang saya kerjakan - dari eksperimen hingga produk."
       />
       <ProjectGrid projects={projects} />
     </Section>

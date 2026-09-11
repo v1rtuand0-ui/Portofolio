@@ -10,7 +10,7 @@ import { MobileNavigation } from './MobileNavigation';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
-  { href: '/education', label: 'Education' }, // TAMBAHKAN INI
+  { href: '/education', label: 'Education' },
   { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
   { href: '/activities', label: 'Activities' },
@@ -29,7 +29,7 @@ export function Header() {
             href="/"
             className="text-xl font-bold tracking-tight text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors"
           >
-            Vito
+            Virtuando
           </Link>
 
           <nav className="hidden md:block" aria-label="Main navigation">
@@ -54,7 +54,7 @@ export function Header() {
               })}
               <li>
                 <a
-                  href="mailto:vito.pratama@gmail.com" // TODO: ganti email asli
+                  href="mailto:virtuandojs611@gmail.com"
                   className="inline-flex items-center px-5 py-2 text-sm font-medium rounded-[var(--radius-full)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all duration-200"
                 >
                   Contact

@@ -5,7 +5,7 @@ import { getProfile } from '@/lib/content/profile';
 import { getFeaturedProjects } from '@/lib/content/projects';
 import { getFeaturedExperiences } from '@/lib/content/experience';
 import { getFeaturedActivities } from '@/lib/content/activities';
-import { getFeaturedEducation } from '@/lib/content/education';
+import { getAllEducation } from '@/lib/content/education';
 import { ExperienceList } from '@/components/experience/ExperienceList';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { ActivityList } from '@/components/activities/ActivityList';
@@ -18,7 +18,7 @@ export default function Home() {
   const featuredProjects = getFeaturedProjects();
   const featuredExperiences = getFeaturedExperiences(5);
   const featuredActivities = getFeaturedActivities(4);
-  const featuredEducation = getFeaturedEducation(4);
+  const allEducation = getAllEducation();
 
   return (
     <>
@@ -71,8 +71,8 @@ export default function Home() {
                           px-6 md:px-10 py-12 lg:py-16
                           max-w-xl lg:ml-auto lg:pr-10 xl:pr-16 w-full">
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
-              {profile.name}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+              <span className="whitespace-nowrap">Virtuando Jagad</span><br />Saputrana
             </h1>
 
             <p className="mt-3 text-xl md:text-2xl font-medium text-white/90">
@@ -130,7 +130,7 @@ export default function Home() {
             description="Institusi dan program yang membentuk perjalanan saya."
             viewAllHref="/education"
           />
-          <EducationGrid education={featuredEducation} />
+          <EducationGrid education={allEducation} />
         </div>
       </Section>
 
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="border-t border-[var(--color-border)] pt-8 md:pt-12">
           <SectionHeading
             title="Proyek Pilihan"
-            description="Proyek yang saya bangun — dari game hingga sistem backend."
+            description="Proyek yang saya bangun: dari game hingga sistem backend."
             viewAllHref="/projects"
           />
           <ProjectGrid projects={featuredProjects} />

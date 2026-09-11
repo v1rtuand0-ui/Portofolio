@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
   return {
-    title: `${project.title} — Vito`,
+    title: `${project.title} | Virtuando`,
     description: project.shortDescription,
   };
 }
