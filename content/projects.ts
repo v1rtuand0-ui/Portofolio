@@ -30,7 +30,7 @@ const projects: Project[] = [
       'Clean Architecture: signal-based, loose coupling, export variables',
       'Complete Game Loop: Main Menu -> Gameplay -> Pause -> Game Over -> Retry -> High Score',
     ],
-    image: '/images/projects/slime-survivor-thumb.jpg',
+    image: '/images/projects/slime-survivor-thumb.png',
   },
   {
     id: 'project-2',
@@ -61,7 +61,7 @@ const projects: Project[] = [
       'APK release kecil (~16 MB, arm64-v8a)',
       'Write atomik: data aman walau aplikasi ditutup paksa',
     ],
-    image: '/images/projects/catatan-motor-thumb.jpg',
+    image: '/images/projects/catatan-motor-thumb.png',
   },
   {
     id: 'project-3',
@@ -90,7 +90,7 @@ const projects: Project[] = [
       '100% lokal: data tidak dikirim ke server kecuali DeepSeek API',
       'Export hasil ke JSON & CSV',
     ],
-    image: '/images/projects/ktp-ocr-thumb.jpg',
+    image: '/images/projects/ktp-ocr-thumb.png',
   },
   {
     id: 'project-4',
@@ -122,7 +122,7 @@ const projects: Project[] = [
       'Siap migrasi ke ESP32 fisik tanpa ubah kode VoltRoute App',
       'Keamanan: RLS di semua tabel, middleware, shared secret',
     ],
-    image: '/images/projects/voltroute-thumb.jpg',
+    image: '/images/projects/voltroute-thumb.png',
   },
   {
     id: 'project-5',
@@ -154,7 +154,7 @@ const projects: Project[] = [
       'Admin panel: manajemen users, tasks, rules',
       'UI Modern-Eco Minimalist, responsive',
     ],
-    image: '/images/projects/wattas-thumb.jpg',
+    image: '/images/projects/wattas-thumb.png',
   },
 ];
 
